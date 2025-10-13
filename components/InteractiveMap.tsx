@@ -17,18 +17,18 @@ const malaysiaStates: StateData[] = [
   { id: 'johor', name: 'Johor', x: 35, y: 75, width: 5, height: 5 },
   { id: 'kedah', name: 'Kedah', x: 19, y: 15, width:5, height: 5 },
   { id: 'kelantan', name: 'Kelantan', x: 27, y: 25, width: 5, height: 5 },
-  { id: 'malacca', name: 'Malacca', x: 35, y: 65, width: 5, height: 5 },
-  { id: 'negeri-sembilan', name: 'Negeri Sembilan', x: 30, y: 60, width: 5, height: 5 },
-  { id: 'pahang', name: 'Pahang', x: 40, y: 40, width: 5, height: 5 },
+  { id: 'malacca', name: 'Malacca', x: 27, y: 70, width: 5, height: 5 },
+  { id: 'negeri-sembilan', name: 'Negeri Sembilan', x: 23, y: 57, width: 5, height: 5 },
+  { id: 'pahang', name: 'Pahang', x: 30, y: 50, width: 5, height: 5 },
   { id: 'penang', name: 'Penang', x: 15, y: 25, width: 5, height: 5 },
   { id: 'perak', name: 'Perak', x: 20, y: 35, width: 5, height: 5 },
   { id: 'perlis', name: 'Perlis', x: 16, y: 10, width: 5, height: 5 },
-  { id: 'selangor', name: 'Selangor', x: 30, y: 50, width: 5, height: 5 },
+  { id: 'selangor', name: 'Selangor', x: 27, y: 65, width: 5, height: 5 },
   { id: 'terengganu', name: 'Terengganu', x: 33, y: 33, width: 5, height: 5 },
   
   // East Malaysia States
-  { id: 'sabah', name: 'Sabah', x: 70, y: 30, width: 5, height: 5 },
-  { id: 'sarawak', name: 'Sarawak', x: 60, y: 45, width: 5, height: 5 },
+  { id: 'sabah', name: 'Sabah', x: 70, y: 40, width: 5, height: 5 },
+  { id: 'sarawak', name: 'Sarawak', x: 60, y: 65, width: 5, height: 5 },
   
 ]
 
@@ -115,7 +115,7 @@ export default function InteractiveMap({ className = '' }: InteractiveMapProps) 
         {/* Title Overlay */}
         <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
           <div className="bg-white/95 backdrop-blur-sm rounded-lg px-6 py-3 shadow-lg border border-accent/30">
-            <span className="text-lg font-bold text-primary">MALAYSIA SERVICE COVERAGE</span>
+            <span className="text-lg font-bold text-primary">NASDEEM SERVICE COVERAGE</span>
           </div>
         </div>
         

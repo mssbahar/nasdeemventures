@@ -38,7 +38,7 @@ const ServiceCard = ({ title, description, image, link, index = 0 }: ServiceCard
         <p className="text-muted-foreground mb-4 line-clamp-3">{description}</p>
         <Link
           href={link}
-          className="inline-flex items-center text-accent hover:text-secondary font-medium transition-colors group/link"
+          className="inline-flex items-center text-accent hover:text-yellow-500 font-medium transition-colors group/link"
         >
           Learn More
           <ArrowRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" />

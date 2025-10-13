@@ -56,7 +56,7 @@ const FloatingElements = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToTop}
-            className="bg-secondary hover:bg-accent text-secondary-foreground p-4 rounded-full shadow-lg transition-colors"
+            className="text-secondary-foreground p-4 rounded-full shadow-lg transition-colors bg-white text-black"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-6 h-6" />

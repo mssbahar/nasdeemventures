@@ -1,49 +1,81 @@
 'use client'
 
+import { useState } from 'react'
 import HeroSection from '@/components/HeroSection'
 import SectionWrapper from '@/components/SectionWrapper'
 import InteractiveMap from '@/components/InteractiveMap'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { Calendar, Target, Eye, Users, Award, CheckCircle } from 'lucide-react'
+import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Calendar, Target, Eye, Users, Award, CheckCircle, ChevronDown, Play, Pause, Volume2, ChevronRight, ChevronLeft } from 'lucide-react'
 
 export default function OurStoryPage() {
+  const [activeSection, setActiveSection] = useState<string | null>(null)
+  const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: string]: number }>({})
+  const [isPlaying, setIsPlaying] = useState<{ [key: string]: boolean }>({})
+
+  const nextImage = (eventKey: string, totalImages: number) => {
+    setCurrentImageIndex(prev => ({
+      ...prev,
+      [eventKey]: ((prev[eventKey] || 0) + 1) % totalImages
+    }))
+  }
+
+  const prevImage = (eventKey: string, totalImages: number) => {
+    setCurrentImageIndex(prev => ({
+      ...prev,
+      [eventKey]: ((prev[eventKey] || 0) - 1 + totalImages) % totalImages
+    }))
+  }
+
+  const togglePlay = (eventKey: string) => {
+    setIsPlaying(prev => ({
+      ...prev,
+      [eventKey]: !prev[eventKey]
+    }))
+  }
   const journey = [
     {
-      year: '2010',
+      year: '2006',
       title: 'Company Founded',
-      description: 'Nasdeem Ventures was established with a vision to revolutionize waste management in Malaysia.',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop'
+      description: 'Began with the purchase of land and the construction of a factory, followed by investments in machinery, treatment facilities, and office equipment. The workforce expanded to 5–10 staff, forming the foundation of Nasdeem Ventures\' operations.',
+      type: 'image',
+      image: '/assets/images/founded.png'
     },
     {
-      year: '2012',
-      title: 'First Major Contract',
-      description: 'Secured our first major industrial waste management contract with a leading manufacturing company.',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop'
-    },
-    {
-      year: '2015',
+      year: '2009',
       title: 'DOE Certification',
-      description: 'Achieved full DOE certification for scheduled waste management operations.',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop'
+      description: 'Obtained DOE licenses (SW305, SW306, SW307) with a 200MT quota, expanded workforce to 10–20 staff and began serving the manufacturing industry.',
+      type: 'image',
+      image: '/assets/images/doelesen.png'
     },
     {
-      year: '2018',
-      title: 'Expansion Phase',
-      description: 'Expanded services to include petroleum products and transportation logistics.',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop'
+      year: '2016',
+      title: 'Expanding Services',
+      description: 'Applied for DOE additional licenses on SW308, SW309, and SW409, receiving approval in 2021 with a quota of 1530MT. The workforce expanded to 20–30 staff, serving both manufacturing as well as marine and shipping industries.',
+      type: 'image',
+      image: '/assets/images/service.jpg'
     },
     {
-      year: '2020',
-      title: 'Digital Transformation',
-      description: 'Implemented advanced digital systems for better waste tracking and management.',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop'
+      year: '2022',
+      title: 'Expanding Region',
+      description: 'Signed an MOU with Kop Mantap Berhad and began the process of adding 10 new SW codes. Opened a new branch in the Central Region with 30–40 staff, expanding services to all industries handling oil, especially the petrochemical sector.',
+      type: 'image',
+      image: '/assets/images/map.png'
     },
     {
-      year: '2023',
-      title: 'Industry Leadership',
-      description: 'Recognized as Malaysia\'s leading Bumiputera company in waste management.',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop'
+      year: '2024',
+      title: 'Company Upgrade',
+      description: 'Completed a full renovation of Nasdeem\'s interior design to enhance quality, comfort, and efficiency for both management and workers.',
+      type: 'image',
+      image: '/assets/images/nasdeem.jpg'
+    },
+    {
+      year: '2025',
+      title: 'KB19 Approval & Renovation',
+      description: 'Received approval KB19 (kebenaran bertulis) for SW310, SW311, SW312, SW313, SW314, SW322, SW323, SW324, SW327, SW110, SW204, SW410, and SW422. To support this, Nasdeem carried out full facility renovations to enable operations for SW310 through SW327, ensuring compliance and readiness for expanded services.',
+      type: 'image',
+      image: '/assets/images/license.jpg'
     }
   ]
 
@@ -132,9 +164,11 @@ export default function OurStoryPage() {
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
         
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          {/* Mission Section */}
-          <div className="mb-24">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* Mission & Vision Accordion */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Mission Section - Left */}
+            <div className="lg:pr-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -144,13 +178,39 @@ export default function OurStoryPage() {
                 scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
                 opacity: { duration: 0.6 }
               }}
-              className="bg-accent/40 backdrop-blur-md rounded-2xl p-12 border border-accent/50 shadow-2xl"
-            >
-              <div className="flex items-center mb-8">
-                <div className="w-1 h-16 bg-gradient-to-b from-accent to-primary rounded-full mr-6"></div>
-                <h3 className="text-4xl lg:text-5xl font-bold text-white leading-tight">Mission</h3>
+                className="bg-accent/40 backdrop-blur-md rounded-lg border border-accent/50 shadow-lg overflow-hidden"
+              >
+                {/* Mission Header - Clickable */}
+                <button
+                  onClick={() => setActiveSection(activeSection === 'mission' ? null : 'mission')}
+                  className="w-full p-6 text-left hover:bg-accent/20 transition-colors duration-300"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <div className="w-1 h-6 bg-gradient-to-b from-accent to-primary rounded-full mr-3"></div>
+                      <h3 className="text-4xl lg:text-5xl font-bold text-white leading-tight">Our Mission</h3>
+                    </div>
+                    <motion.div
+                      animate={{ rotate: activeSection === 'mission' ? 180 : 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <ChevronDown className="w-8 h-8 text-white" />
+                    </motion.div>
               </div>
-              <div className="pl-7">
+                </button>
+
+                {/* Mission Content - Animated */}
+                <AnimatePresence>
+                  {activeSection === 'mission' && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6">
+                        <div className="pl-4">
                 <p className="text-xl text-white/90 leading-relaxed mb-6">
                   We are committed to environmental improvements that drive a sustainable future and create social and economic benefits in communities we serve.
                 </p>
@@ -158,18 +218,15 @@ export default function OurStoryPage() {
                   Through environmental mentoring and industry networking, we support growth across the schedule waste recovery sector and our related business activities.
                 </p>
               </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
             </motion.div>
           </div>
 
-          {/* Corporate Divider */}
-          <div className="flex items-center justify-center mb-24">
-            <div className="w-32 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
-            <div className="mx-8 w-3 h-3 bg-white/60 rounded-full"></div>
-            <div className="w-32 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
-          </div>
-
-          {/* Vision Section */}
-          <div>
+            {/* Vision Section - Right */}
+            <div className="lg:pl-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -179,100 +236,246 @@ export default function OurStoryPage() {
                 scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
                 opacity: { duration: 0.6 }
               }}
-              className="bg-accent/40 backdrop-blur-md rounded-2xl p-12 border border-accent/50 shadow-2xl"
-            >
-              <div className="flex items-center mb-8">
-                <div className="w-1 h-16 bg-gradient-to-b from-primary to-accent rounded-full mr-6"></div>
-                <h3 className="text-4xl lg:text-5xl font-bold text-white leading-tight">Vision</h3>
+                className="bg-accent/40 backdrop-blur-md rounded-lg border border-accent/50 shadow-lg overflow-hidden"
+              >
+                {/* Vision Header - Clickable */}
+                <button
+                  onClick={() => setActiveSection(activeSection === 'vision' ? null : 'vision')}
+                  className="w-full p-6 text-left hover:bg-accent/20 transition-colors duration-300"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <div className="w-1 h-6 bg-gradient-to-b from-primary to-accent rounded-full mr-3"></div>
+                      <h3 className="text-4xl lg:text-5xl font-bold text-white leading-tight">Our Vision</h3>
+                    </div>
+                    <motion.div
+                      animate={{ rotate: activeSection === 'vision' ? 180 : 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <ChevronDown className="w-8 h-8 text-white" />
+                    </motion.div>
               </div>
-              <div className="pl-7">
+                </button>
+
+                {/* Vision Content - Animated */}
+                <AnimatePresence>
+                  {activeSection === 'vision' && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6">
+                        <div className="pl-4">
                 <p className="text-xl text-white/90 leading-relaxed">
                   To contribute to the nation's future circular economy through comprehensive scheduled waste recovery.
                 </p>
+              </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+            </motion.div>
+            </div>
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* Meet Our Chairman Section */}
+      <SectionWrapper className="bg-white py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+            {/* Left Column - Testimonial Style */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="space-y-8 lg:pr-12"
+            >
+              {/* Main Heading */}
+              <div>
+                <h2 className="text-4xl lg:text-5xl font-bold text-black mb-4">
+                  Meet Dato' Haji Mohd Nasir bin Haji Mohd Kassim
+                </h2>
+                {/* Yellow Underline */}
+                <div className="w-8 h-1.5 bg-[#FBBF24]"></div>
+              </div>
+              
+              {/* Subtitle */}
+              <p className="text-sm font-bold uppercase tracking-wider text-black">
+                FOUNDER. MANAGING DIRECTOR. INDUSTRY EXPERT.
+              </p>
+              
+              {/* Body Text 1 */}
+              <p className="text-base lg:text-lg leading-relaxed text-black text-justify">
+                Dato' Haji Mohd Nasir bin Haji Mohd Kassim is the Founder and Managing Director 
+                of Nasdeem Ventures Sdn. Bhd., established in 2006. With more than two decades 
+                of experience in the oil and waste management industry, he brings a wealth of 
+                knowledge and strategic insight to the company.
+              </p>
+              
+              {/* Body Text 2 */}
+              <p className="text-base lg:text-lg leading-relaxed text-black text-justify">
+                His strong leadership and deep industry expertise have been instrumental in 
+                positioning Nasdeem Ventures as a respected and recognized name in the Scheduled 
+                Waste Management sector in Malaysia. Under his guidance, the company continues 
+                to grow and innovate, delivering reliable, compliant, and sustainable waste 
+                management solutions nationwide.
+              </p>
+              
+              {/* Quote */}
+              <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-[#FBBF24]">
+                <p className="text-lg italic text-gray-800 font-medium mb-2">
+                  "Leading with integrity, growing through responsibility."
+                </p>
+                <p className="text-sm text-gray-600">
+                  ~ Dato' Haji Mohd Nasir bin Haji Mohd Kassim<br />
+                  Chairman of Nasdeem Ventures Sdn. Bhd.
+                </p>
+              </div>
+              
+              {/* CTA Button */}
+              <div className="mt-12">
+                <Link href="/about/our-team">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-[#FBBF24] hover:bg-[#F59E0B] text-black font-bold uppercase tracking-wider px-8 py-4 rounded-lg transition-colors duration-300"
+                  >
+                    Learn More About Our Team
+                  </motion.button>
+                </Link>
+              </div>
+            </motion.div>
+            
+            {/* Right Column - Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="mt-8 lg:mt-0"
+            >
+              <div className="relative h-[800px] lg:h-[900px] w-full">
+                <Image
+                  src="/assets/images/chairman.jpg"
+                  alt="Dato' Haji Mohd Nasir bin Haji Mohd Kassim"
+                  fill
+                  className="object-cover rounded-lg"
+                />
               </div>
             </motion.div>
           </div>
         </div>
       </SectionWrapper>
 
-      {/* Meet Our Founder Section */}
-      <SectionWrapper className="bg-gradient-to-r from-primary to-accent text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">Meet Our Founder</h2>
-              <p className="text-lg text-gray-200 mb-6">
-                "Our journey began with a simple belief: that environmental responsibility 
-                and business success can go hand in hand. We've built Nasdeem Ventures 
-                on the foundation of integrity, innovation, and a deep commitment to 
-                protecting Malaysia's environment for future generations."
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-accent" />
-                  <span>15+ years in environmental services</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-accent" />
-                  <span>Expert in waste management regulations</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-accent" />
-                  <span>Passionate about sustainable business</span>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <Image
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop"
-                alt="Founder"
-                width={500}
-                height={600}
-                className="rounded-lg shadow-2xl"
-              />
-            </div>
-          </div>
+      {/* Our Journey Timeline - Responsive Vertical Timeline */}
+      <SectionWrapper className="relative">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/images/bg.png"
+            alt="Background"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60"></div>
         </div>
-      </SectionWrapper>
+        
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
+          {/* Decorative Ribbon Header */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20 relative"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 tracking-wide">
+              OUR STORY
+            </h2>
+          </motion.div>
 
-      {/* Our Journey Timeline */}
-      <SectionWrapper>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Our Journey</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              A timeline of our growth and achievements over the years
-            </p>
-          </div>
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-accent hidden lg:block" />
-            <div className="space-y-12">
+          <div className="relative max-w-6xl mx-auto">
+            {/* Central Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-white/30 hidden lg:block" />
+            
+            {/* Timeline Items */}
+            <div className="space-y-20">
               {journey.map((item, index) => (
-                <div key={item.year} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
-                  <div className="w-full lg:w-1/2 px-4">
-                    <div className="bg-white rounded-lg shadow-lg p-6 hover-lift">
-                      <div className="flex items-center space-x-4 mb-4">
-                        <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
-                          <Calendar className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <div className="text-2xl font-bold text-accent">{item.year}</div>
-                          <h3 className="text-xl font-semibold text-primary">{item.title}</h3>
-                        </div>
-                      </div>
-                      <p className="text-muted-foreground mb-4">{item.description}</p>
-                      <div className="relative h-48 rounded-lg overflow-hidden">
+                <motion.div
+                  key={item.year}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  className="w-full"
+                >
+                  {/* CSS Grid Layout with Alternating Content */}
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    {/* Column 1: Content Card - Alternating Sides */}
+                    <div className={`order-1 lg:col-span-5 ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-3'}`}>
+                      <motion.div
+                        initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: index * 0.2 + 0.5 }}
+                        className="bg-white rounded-lg shadow-lg border border-[#E5E5E5] p-6 hover:shadow-xl transition-all duration-300 group"
+                      >
+                        {/* Title */}
+                        <h3 className="text-xl font-bold text-black mb-4 group-hover:text-[#FBBF24] transition-colors duration-300">
+                          {item.title}
+                        </h3>
+                        
+                        {/* Description */}
+                        <p className="text-[#4B5563] text-base leading-relaxed">
+                          {item.description}
+                        </p>
+                      </motion.div>
+                    </div>
+
+                    {/* Column 2: Year Label on Timeline - Always Center */}
+                    <div className="order-2 lg:order-2 lg:col-span-2 flex justify-center relative">
+                      <motion.div
+                        initial={{ scale: 0, rotate: -180 }}
+                        whileInView={{ scale: 1, rotate: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
+                        className="bg-[#FBBF24] text-black px-3 py-1 text-sm font-bold rounded-sm shadow-lg relative z-20"
+                      >
+                        {item.year}
+                      </motion.div>
+                    </div>
+
+                    {/* Column 3: Media Element - Alternating Sides */}
+                    <div className={`order-3 lg:col-span-5 ${index % 2 === 0 ? 'lg:order-3' : 'lg:order-1'}`}>
+                      <motion.div
+                        initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: index * 0.2 + 0.7 }}
+                        className="space-y-4"
+                      >
+                        {item.type === 'image' && (
+                          <div className="relative rounded-lg overflow-hidden">
+                            <div className="relative h-64">
                         <Image
                           src={item.image}
                           alt={item.title}
                           fill
-                          className="object-cover"
+                                className="object-cover transition-transform duration-500 hover:scale-105"
                         />
                       </div>
+                          </div>
+                        )}
+                      </motion.div>
                     </div>
                   </div>
-                  <div className="hidden lg:block w-1/2" />
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -285,7 +488,7 @@ export default function OurStoryPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
               <span className="text-primary">NASDEEM</span>{' '}
-              <span className="text-blue-600">SERVICE</span>{' '}
+              <span className="text-primary">SERVICE</span>{' '}
               <span className="text-accent">COVERAGE</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -302,7 +505,7 @@ export default function OurStoryPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary">15</span>
+                <span className="text-2xl font-bold text-primary">13</span>
               </div>
               <h3 className="text-xl font-semibold text-primary mb-2">Service Locations</h3>
               <p className="text-muted-foreground">Strategic points across Malaysia</p>

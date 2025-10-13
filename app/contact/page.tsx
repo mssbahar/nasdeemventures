@@ -4,7 +4,7 @@ import { useState } from 'react'
 import HeroSection from '@/components/HeroSection'
 import SectionWrapper from '@/components/SectionWrapper'
 import Image from 'next/image'
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, ChevronDown, ChevronUp } from 'lucide-react'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -18,6 +18,7 @@ export default function ContactPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -46,6 +47,10 @@ export default function ContactPage() {
       subject: '',
       message: ''
     })
+  }
+
+  const toggleFaq = (index: number) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index)
   }
 
   const contactInfo = {
@@ -89,7 +94,7 @@ export default function ContactPage() {
     },
     {
       question: 'What certifications do you have?',
-      answer: 'We are certified by DOE, KPDNKK, PDRM, MPOB, and CIDB for various aspects of our operations.'
+      answer: 'We are certified by DOE, KPDN, PDRM, MPOB, and CIDB for various aspects of our operations.'
     }
   ]
 
@@ -99,9 +104,127 @@ export default function ContactPage() {
       <HeroSection
         title="Contact Us"
         subtitle="Get in touch with our team for all your environmental service needs"
-        backgroundImage="https://images.unsplash.com/photo-1581092160562-10aa08e78837?w=1920&h=1080&fit=crop"
+        backgroundImage="/assets/images/contact.png"
         showButtons={false}
       />
+
+      {/* Email Addresses */}
+      <SectionWrapper className="bg-muted">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
+              Contact Our Departments
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+              Reach out to the right department for faster assistance. Each email is monitored by our specialized teams.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* General Inquiry */}
+            <div className="bg-white rounded-lg shadow-lg p-6 hover-lift">
+              <div className="flex items-center space-x-3 mb-4">
+                <Mail className="w-6 h-6 text-accent" />
+                <h3 className="text-lg font-semibold text-primary">General Inquiry</h3>
+              </div>
+              <a 
+                href="mailto:general@nasdeemventures.com"
+                className="text-accent hover:text-secondary font-medium mb-2 block"
+              >
+                general@nasdeemventures.com
+              </a>
+              <p className="text-muted-foreground text-sm">
+                For general questions, information requests, and general business inquiries.
+              </p>
+            </div>
+
+            {/* Sales */}
+            <div className="bg-white rounded-lg shadow-lg p-6 hover-lift">
+              <div className="flex items-center space-x-3 mb-4">
+                <Mail className="w-6 h-6 text-accent" />
+                <h3 className="text-lg font-semibold text-primary">Sales & Quotations</h3>
+              </div>
+              <a 
+                href="mailto:sales@nasdeemventures.com"
+                className="text-accent hover:text-secondary font-medium mb-2 block"
+              >
+                sales@nasdeemventures.com
+              </a>
+              <p className="text-muted-foreground text-sm">
+                For service quotes, pricing inquiries, and new business opportunities.
+              </p>
+            </div>
+
+            {/* One Stop Centre */}
+            <div className="bg-white rounded-lg shadow-lg p-6 hover-lift">
+              <div className="flex items-center space-x-3 mb-4">
+                <Mail className="w-6 h-6 text-accent" />
+                <h3 className="text-lg font-semibold text-primary">One Stop Centre</h3>
+              </div>
+              <a 
+                href="mailto:onestopcentre@nasdeemventures.com"
+                className="text-accent hover:text-secondary font-medium mb-2 block"
+              >
+                onestopcentre@nasdeemventures.com
+              </a>
+              <p className="text-muted-foreground text-sm">
+                For comprehensive service requests and integrated solutions.
+              </p>
+            </div>
+
+            {/* Marketing */}
+            <div className="bg-white rounded-lg shadow-lg p-6 hover-lift">
+              <div className="flex items-center space-x-3 mb-4">
+                <Mail className="w-6 h-6 text-accent" />
+                <h3 className="text-lg font-semibold text-primary">Marketing & Media</h3>
+              </div>
+              <a 
+                href="mailto:marketing@nasdeemventures.com"
+                className="text-accent hover:text-secondary font-medium mb-2 block"
+              >
+                marketing@nasdeemventures.com
+              </a>
+              <p className="text-muted-foreground text-sm">
+                For marketing partnerships, media inquiries, and promotional activities.
+              </p>
+            </div>
+
+            {/* Human Resources */}
+            <div className="bg-white rounded-lg shadow-lg p-6 hover-lift">
+              <div className="flex items-center space-x-3 mb-4">
+                <Mail className="w-6 h-6 text-accent" />
+                <h3 className="text-lg font-semibold text-primary">Human Resources</h3>
+              </div>
+              <a 
+                href="mailto:hr.department@nasdeemventures.com"
+                className="text-accent hover:text-secondary font-medium mb-2 block"
+              >
+                hr.department@nasdeemventures.com
+              </a>
+              <p className="text-muted-foreground text-sm">
+                For job applications, career inquiries, and HR-related matters.
+              </p>
+            </div>
+
+            {/* Accounts */}
+            <div className="bg-white rounded-lg shadow-lg p-6 hover-lift">
+              <div className="flex items-center space-x-3 mb-4">
+                <Mail className="w-6 h-6 text-accent" />
+                <h3 className="text-lg font-semibold text-primary">Accounts & Finance</h3>
+              </div>
+              <a 
+                href="mailto:accounts@nasdeemventures.com"
+                className="text-accent hover:text-secondary font-medium mb-2 block"
+              >
+                accounts@nasdeemventures.com
+              </a>
+              <p className="text-muted-foreground text-sm">
+                For billing inquiries, payment matters, and financial documentation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </SectionWrapper>
 
       {/* Contact Form & Info */}
       <SectionWrapper>
@@ -221,7 +344,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-accent text-accent-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                    className="w-full bg-accent text-accent-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-secondary transition-colors hover:text-yellow-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                   >
                     {isSubmitting ? (
                       <>
@@ -268,27 +391,6 @@ export default function ContactPage() {
                           className="block text-muted-foreground hover:text-accent transition-colors"
                         >
                           {phone}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Email Addresses */}
-              <div className="mb-8">
-                <div className="flex items-start space-x-4">
-                  <Mail className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold text-primary mb-2">Email Addresses</h3>
-                    <div className="space-y-1">
-                      {contactInfo.emails.map((email, index) => (
-                        <a
-                          key={index}
-                          href={`mailto:${email}`}
-                          className="block text-muted-foreground hover:text-accent transition-colors text-sm"
-                        >
-                          {email}
                         </a>
                       ))}
                     </div>
@@ -343,11 +445,25 @@ export default function ContactPage() {
               Find answers to common questions about our services
             </p>
           </div>
-          <div className="space-y-6">
+          <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm p-6">
-                <h3 className="text-lg font-semibold text-primary mb-3">{faq.question}</h3>
-                <p className="text-muted-foreground">{faq.answer}</p>
+              <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden">
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                >
+                  <h3 className="text-lg font-semibold text-primary pr-4">{faq.question}</h3>
+                  {openFaqIndex === index ? (
+                    <ChevronUp className="w-5 h-5 text-accent flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-accent flex-shrink-0" />
+                  )}
+                </button>
+                {openFaqIndex === index && (
+                  <div className="px-6 pb-4">
+                    <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -1,69 +1,92 @@
+'use client'
+
 import HeroSection from '@/components/HeroSection'
 import SectionWrapper from '@/components/SectionWrapper'
 import ServiceCard from '@/components/ServiceCard'
 import Image from 'next/image'
-import { CheckCircle, ArrowRight } from 'lucide-react'
+import { CheckCircle, ArrowRight, Award, Users, Clock, Shield, Star, Truck } from 'lucide-react'
 import Link from 'next/link'
+import { motion, useMotionValue, animate, useTransform } from 'framer-motion'
 
 export default function ServicesPage() {
+  function RollingNumber({ target, suffix = '', delay = 0 }: { target: number; suffix?: string; delay?: number }) {
+    const count = useMotionValue(0)
+    const rounded = useTransform(count, (latest) => Math.round(latest))
+    const display = useTransform(rounded, (latest) => `${latest}${suffix}`)
+    
+    return (
+      <motion.span
+        className="block text-6xl lg:text-7xl font-extrabold text-secondary drop-shadow mb-4"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        onViewportEnter={() => {
+          animate(count, target, { duration: 1.4, delay, ease: 'easeOut' })
+        }}
+      >
+        <motion.span>{display}</motion.span>
+      </motion.span>
+    )
+  }
+
   const services = [
     {
       title: 'Scheduled Waste Management',
-      description: 'Comprehensive waste management solutions for industrial and commercial clients with full compliance to DOE regulations. We handle collection, transportation, treatment, and disposal of scheduled wastes.',
+      description: 'Comprehensive waste management solutions for industrial and commercial clients with full compliance to DOE regulations.',
       image: '/assets/images/schedule-waste.png',
-      link: '/services/scheduled-waste-management',
-      features: ['DOE Licensed', '19 Waste Categories', '24/7 Service', 'Full Compliance']
+      link: '/services/scheduled-waste-management'
     },
     {
       title: 'Petroleum Products',
-      description: 'Supply and distribution of high-quality petroleum products for various industrial applications. We ensure quality assurance and timely delivery to meet your operational needs.',
+      description: 'Supply and distribution of high-quality petroleum products for various industrial applications.',
       image: '/assets/images/wholesale.png',
-      link: '/services/petroleum-products',
-      features: ['KPDNKK Licensed', 'Quality Assured', 'Bulk Supply', 'Competitive Pricing']
+      link: '/services/petroleum-products'
     },
     {
       title: 'Demolitions Works',
-      description: 'Professional demolition services with safety-first approach and environmental compliance. We handle both residential and commercial demolition projects with precision.',
+      description: 'Professional demolition services with safety-first approach and environmental compliance.',
       image: '/assets/images/demolition.png',
-      link: '/services/demolitions-works',
-      features: ['CIDB Licensed', 'Safety First', 'Environmental Care', 'Complete Cleanup']
+      link: '/services/demolitions-works'
     },
     {
       title: 'Palm Oil Supply',
-      description: 'Reliable palm oil supply chain management with quality assurance and timely delivery. We work with certified suppliers to ensure the highest quality products.',
+      description: 'Reliable palm oil supply chain management with quality assurance and timely delivery.',
       image: '/assets/images/palmoil.jpg',
-      link: '/services/palm-oil-supply',
-      features: ['MPOB Licensed', 'Quality Certified', 'Sustainable Sourcing', 'Flexible Supply']
+      link: '/services/palm-oil-supply'
     },
     {
       title: 'Transportations & Logistics',
-      description: 'Complete logistics solutions including transportation, warehousing, and supply chain management. We provide end-to-end logistics support for your business needs.',
+      description: 'Complete logistics solutions including transportation, warehousing, and supply chain management.',
       image: '/assets/images/transportation.png',
-      link: '/services/transportations-logistics',
-      features: ['Fleet Management', 'Warehousing', 'Route Optimization', 'Real-time Tracking']
+      link: '/services/transportations-logistics'
     }
   ]
 
-  const processSteps = [
+  const whyChooseUs = [
     {
-      step: '01',
-      title: 'Consultation',
-      description: 'We assess your specific needs and requirements through detailed consultation.'
+      icon: <Award className="w-8 h-8" />,
+      title: 'Certified Excellence',
+      description: 'DOE, KPDNKK, PDRM, MPOB, and CIDB certified operations'
     },
     {
-      step: '02',
-      title: 'Planning',
-      description: 'Our experts develop a comprehensive plan tailored to your business objectives.'
+      icon: <Users className="w-8 h-8" />,
+      title: 'Expert Team',
+      description: 'Experienced professionals with deep industry knowledge'
     },
     {
-      step: '03',
-      title: 'Implementation',
-      description: 'We execute the plan with precision, ensuring quality and compliance at every step.'
+      icon: <Clock className="w-8 h-8" />,
+      title: '24/7 Support',
+      description: 'Round-the-clock customer support and emergency services'
     },
     {
-      step: '04',
-      title: 'Monitoring',
-      description: 'Continuous monitoring and reporting to ensure optimal performance and results.'
+      icon: <Shield className="w-8 h-8" />,
+      title: 'Compliance First',
+      description: 'Full adherence to Malaysian environmental regulations'
+    },
+    {
+      icon: <Star className="w-8 h-8" />,
+      title: 'Proven Track Record',
+      description: 'Years of successful project delivery and client satisfaction'
     }
   ]
 
@@ -73,7 +96,7 @@ export default function ServicesPage() {
       <HeroSection
         title="Our Services"
         subtitle="Comprehensive industrial solutions tailored to your needs"
-        backgroundImage="https://images.unsplash.com/photo-1581092160562-10aa08e78837?w=1920&h=1080&fit=crop"
+        backgroundImage="/assets/images/service.jpg"
         showButtons={true}
         buttonText="Get Quote"
         buttonLink="/contact"
@@ -81,161 +104,168 @@ export default function ServicesPage() {
         secondaryButtonLink="#services"
       />
 
-      {/* Services Overview */}
+      {/* Our Services Section */}
       <SectionWrapper id="services">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
-              Our Service Portfolio
+              Our Services
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-justify">
               We offer a comprehensive range of industrial solutions designed to meet 
               your specific needs while ensuring full compliance with environmental regulations.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div key={service.title} className="bg-white rounded-lg shadow-lg overflow-hidden hover-lift group">
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-3">{service.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {service.features.map((feature) => (
-                      <span key={feature} className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm">
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <Link
-                    href={service.link}
-                    className="inline-flex items-center text-accent hover:text-secondary font-medium transition-colors group/link"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
-            ))}
+          <div className="max-w-6xl mx-auto">
+            {/* Top row - 3 services */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center mb-8">
+              {services.slice(0, 3).map((service, index) => (
+                <ServiceCard
+                  key={service.title}
+                  title={service.title}
+                  description={service.description}
+                  image={service.image}
+                  link={service.link}
+                  index={index}
+                />
+              ))}
+            </div>
+            {/* Bottom row - 2 services centered */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center max-w-4xl mx-auto">
+              {services.slice(3, 5).map((service, index) => (
+                <ServiceCard
+                  key={service.title}
+                  title={service.title}
+                  description={service.description}
+                  image={service.image}
+                  link={service.link}
+                  index={index + 3}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </SectionWrapper>
 
-      {/* Our Process */}
-      <SectionWrapper className="bg-muted">
+      {/* Why Choose Nasdeem Section */}
+      <SectionWrapper className="relative overflow-hidden bg-gradient-to-br from-zinc-900 via-black to-zinc-800 text-white">
+        {/* Decorative gradient glow */}
+        <div className="pointer-events-none absolute -top-20 -right-32 h-80 w-80 rounded-full bg-accent/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-secondary/10 blur-3xl" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
-              Our Process
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Why Choose Nasdeem Ventures
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              We follow a systematic approach to ensure successful project delivery and client satisfaction
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              We combine industry expertise with cutting-edge technology to deliver 
+              exceptional results for our clients.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((step, index) => (
-              <div key={step.step} className="text-center group">
-                <div className="relative mb-6">
-                  <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary transition-colors">
-                    <span className="text-2xl font-bold text-white">{step.step}</span>
-                  </div>
-                  {index < processSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-accent transform translate-x-8" />
-                  )}
-                </div>
-                <h3 className="text-xl font-semibold text-primary mb-3">{step.title}</h3>
-                <p className="text-muted-foreground">{step.description}</p>
-              </div>
-            ))}
+          {/* Stats Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="text-center group">
+              <RollingNumber target={20} suffix="" delay={0.1} />
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-xl text-white"
+              >
+                Years Experience
+              </motion.p>
+            </div>
+            <div className="text-center group">
+              <RollingNumber target={300} suffix="+" delay={0.3} />
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-xl text-white"
+              >
+                Satisfied Clients
+              </motion.p>
+            </div>
+            <div className="text-center group">
+              <RollingNumber target={50} suffix="+" delay={0.5} />
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+                className="text-xl text-white"
+              >
+                Experienced Workers
+              </motion.p>
+            </div>
           </div>
-        </div>
-      </SectionWrapper>
 
-      {/* Why Choose Our Services */}
-      <SectionWrapper>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
-                Why Choose Our Services
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                We combine industry expertise with cutting-edge technology to deliver 
-                exceptional results for our clients. Our commitment to quality, compliance, 
-                and customer satisfaction sets us apart.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-primary mb-1">Fully Licensed & Certified</h3>
-                    <p className="text-muted-foreground">All our services are fully licensed by relevant regulatory bodies</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-primary mb-1">Expert Team</h3>
-                    <p className="text-muted-foreground">Highly qualified professionals with extensive industry experience</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-primary mb-1">24/7 Support</h3>
-                    <p className="text-muted-foreground">Round-the-clock customer support and emergency services</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-primary mb-1">Environmental Compliance</h3>
-                    <p className="text-muted-foreground">Full adherence to Malaysian environmental regulations</p>
-                  </div>
-                </div>
+          {/* Features Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-center group"
+            >
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-secondary rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                <Award className="w-16 h-16 text-primary" />
               </div>
-            </div>
-            <div className="relative">
-              <Image
-                src="https://images.unsplash.com/photo-1581092160562-10aa08e78837?w=600&h=400&fit=crop"
-                alt="Our Services"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg"
-              />
-            </div>
+              <h3 className="text-2xl font-bold mb-3 text-white">Fully Licensed</h3>
+              <p className="text-gray-300">DOE, KPDNKK, PDRM, MPOB & CIDB certified</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-center group"
+            >
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-secondary rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                <Truck className="w-16 h-16 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3 text-white">Own Transport Fleet</h3>
+              <p className="text-gray-300">Reliable, fast delivery nationwide</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-center group"
+            >
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-secondary rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                <Clock className="w-16 h-16 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3 text-white">24/7 Service</h3>
+              <p className="text-gray-300">Emergency support available</p>
+            </motion.div>
           </div>
         </div>
       </SectionWrapper>
 
       {/* CTA Section */}
-      <SectionWrapper className="bg-gradient-to-r from-primary to-accent text-white">
+      <SectionWrapper className="bg-gradient-to-r from-primary to-accent text-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl text-gray-200 mb-8">
-            Contact us today to discuss your requirements and get a customized quote for our services
-          </p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
+              Ready to Get Started?
+            </h2>
+            <p className="text-xl text-black mb-8">
+              Contact us today to discuss your requirements and get a customized quote for our services
+            </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-white text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+              className="bg-white text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors hover:text-yellow-500"
             >
               Get Free Quote
             </Link>
             <Link
               href="tel:604-5010800"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary transition-colors"
+              className="border-2 border-black text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-black hover:text-yellow-500 transition-colors"
             >
               Call Now: 604-5010800
             </Link>

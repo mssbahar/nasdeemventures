@@ -6,67 +6,83 @@ import { Linkedin, Mail, Phone } from 'lucide-react'
 export default function OurTeamPage() {
   const teamMembers = [
     {
-      name: 'Ahmad Nasdeem',
-      position: 'Managing Director',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
-      bio: '15+ years experience in environmental services and waste management. Expert in regulatory compliance and business development.',
-      email: 'ahmad@nasdeemventures.com',
+      name: 'Haslida Abdul Ghani',
+      position: 'CEO',
+      location: 'Penang',
+      image: '/assets/images/ida.jpg',
+      imageHover: '/assets/images/ida.jpg',
+      bio: 'I lead our strategic vision and drive organizational excellence across all operations, ensuring sustainable growth and environmental responsibility.',
+      email: 'haslida@nasdeemventures.com',
       linkedin: '#'
     },
     {
-      name: 'Sarah Abdullah',
-      position: 'Chief Executive Officer',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop',
-      bio: 'Strategic leader with extensive experience in operations management and client relations. Passionate about sustainable business practices.',
-      email: 'sarah@nasdeemventures.com',
-      linkedin: '#'
-    },
-    {
-      name: 'Dr. Lim Wei Ming',
+      name: 'Nashrul Azwan',
       position: 'Marketing Advisor',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop',
-      bio: 'Marketing strategist with 20+ years in B2B marketing. Specializes in environmental services and industrial solutions marketing.',
-      email: 'lim@nasdeemventures.com',
+      location: 'Penang',
+      image: '/assets/images/nashrul.jpg',
+      imageHover: '/assets/images/nashrul.jpg',
+      bio: 'I develop strategic marketing initiatives that position Nasdeem Ventures as the leading environmental services provider in Malaysia.',
+      email: 'nashrul@nasdeemventures.com',
       linkedin: '#'
     },
     {
-      name: 'Fatimah Rahman',
+      name: 'Nur Farah Azlin',
       position: 'Management Advisor',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop',
-      bio: 'Operations expert with deep knowledge of waste management processes and quality assurance systems.',
-      email: 'fatimah@nasdeemventures.com',
+      location: 'Penang',
+      image: '/assets/images/farah1.jpg',
+      imageHover: '/assets/images/farah2.jpg',
+      bio: 'I provide strategic management guidance to optimize our operational processes and ensure regulatory compliance across all waste management services.',
+      email: 'farah@nasdeemventures.com',
       linkedin: '#'
     },
     {
-      name: 'Datuk Ahmad Zain',
-      position: 'Corporate Advisor',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
-      bio: 'Senior corporate advisor with extensive experience in regulatory affairs and government relations.',
-      email: 'zain@nasdeemventures.com',
-      linkedin: '#'
-    },
-    {
-      name: 'Dr. Raj Kumar',
-      position: 'Technology Advisor',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
-      bio: 'Technology innovator specializing in digital solutions for waste management and environmental monitoring.',
-      email: 'raj@nasdeemventures.com',
-      linkedin: '#'
-    },
-    {
-      name: 'Nurul Aisyah',
+      name: 'Mohd Faritdzul',
       position: 'General Manager (Strategic Marketing)',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop',
-      bio: 'Marketing leader focused on strategic planning and brand development in the environmental services sector.',
-      email: 'nurul@nasdeemventures.com',
+      location: 'Penang',
+      image: '/assets/images/faritdzul.jpg',
+      imageHover: '/assets/images/faritdzul.jpg',
+      bio: 'I oversee our strategic marketing operations and develop comprehensive marketing strategies to expand our market presence and client base.',
+      email: 'faritdzul@nasdeemventures.com',
       linkedin: '#'
     },
     {
-      name: 'Hassan Ali',
+      name: 'Dr. Shazlina Abd Hamid',
       position: 'General Manager (Corporate Service)',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop',
-      bio: 'Corporate services expert managing client relationships and service delivery excellence.',
-      email: 'hassan@nasdeemventures.com',
+      location: 'Penang',
+      image: '/assets/images/shazlina.jpg',
+      imageHover: '/assets/images/shazlina.jpg',
+      bio: 'I lead our corporate services division, ensuring operational excellence and regulatory compliance across all our waste management operations.',
+      email: 'shazlina@nasdeemventures.com',
+      linkedin: '#'
+    },
+    {
+      name: 'Syahirah Razi',
+      position: 'Licensing Executive',
+      location: 'Penang',
+      image: '/assets/images/ira.jpg',
+      imageHover: '/assets/images/ira.jpg',
+      bio: 'I manage our licensing portfolio and ensure we maintain all necessary permits for sustainable waste management operations.',
+      email: 'syahirah@nasdeemventures.com',
+      linkedin: '#'
+    },
+    {
+      name: 'Abdul Alim',
+      position: 'Finance Executive',
+      location: 'Penang',
+      image: '/assets/images/alim.jpg',
+      imageHover: '/assets/images/alim.jpg',
+      bio: 'I oversee our financial operations and ensure sustainable growth through strategic financial planning and resource management.',
+      email: 'alim@nasdeemventures.com',
+      linkedin: '#'
+    },
+    {
+      name: 'Areena',
+      position: 'HR Executive',
+      location: 'Penang',
+      image: '/assets/images/areena.jpg',
+      imageHover: '/assets/images/areena.jpg',
+      bio: 'I manage our human resources operations, ensuring we attract and retain top talent while fostering a positive workplace culture.',
+      email: 'areena@nasdeemventures.com',
       linkedin: '#'
     }
   ]
@@ -81,7 +97,7 @@ export default function OurTeamPage() {
         showButtons={false}
       />
 
-      {/* Team Introduction */}
+      {/* Team Introduction & Members Grid */}
       <SectionWrapper className="bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -95,89 +111,48 @@ export default function OurTeamPage() {
               environmental responsibility.
             </p>
           </div>
-        </div>
-      </SectionWrapper>
-
-      {/* Team Members Grid */}
-      <SectionWrapper>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
-              <div key={member.name} className="bg-white rounded-lg shadow-lg overflow-hidden hover-lift group">
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="flex space-x-2">
-                      <a
-                        href={`mailto:${member.email}`}
-                        className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-                      >
-                        <Mail className="w-4 h-4 text-white" />
-                      </a>
-                      <a
-                        href={member.linkedin}
-                        className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-                      >
-                        <Linkedin className="w-4 h-4 text-white" />
-                      </a>
-                    </div>
+              <div key={member.name} className="group">
+                <div className="relative mb-6">
+                  <div className="relative w-full h-80 rounded-lg overflow-hidden">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover transition-opacity duration-500 group-hover:opacity-0"
+                    />
+                    <Image
+                      src={member.imageHover}
+                      alt={`${member.name} - Hover`}
+                      fill
+                      className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100 absolute inset-0"
+                    />
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-2">{member.name}</h3>
-                  <p className="text-accent font-medium mb-3">{member.position}</p>
-                  <p className="text-muted-foreground text-sm line-clamp-3">{member.bio}</p>
+                <div className="space-y-3">
+                  <h3 className="text-xl font-bold text-primary group-hover:text-[#FBBF24] transition-colors duration-300">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-primary font-medium">
+                    {member.position}, {member.location}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {member.bio}
+                  </p>
+                  <div className="pt-2">
+                    <a
+                      href={member.linkedin}
+                      className="inline-flex items-center text-sm text-[#FBBF24] hover:text-[#F59E0B] transition-colors duration-300"
+                    >
+                      <Linkedin className="w-4 h-4 mr-2" />
+                      LinkedIn
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </SectionWrapper>
-
-      {/* Team Values */}
-      <SectionWrapper className="bg-gradient-to-r from-primary to-accent text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Our Team Values</h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-              The principles that guide our team and drive our success
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold">E</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Excellence</h3>
-              <p className="text-gray-200">We strive for the highest standards in everything we do</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold">I</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Integrity</h3>
-              <p className="text-gray-200">We maintain honesty and transparency in all our dealings</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold">C</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Collaboration</h3>
-              <p className="text-gray-200">We work together to achieve common goals</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold">I</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Innovation</h3>
-              <p className="text-gray-200">We continuously seek better ways to serve our clients</p>
-            </div>
           </div>
         </div>
       </SectionWrapper>
@@ -196,13 +171,13 @@ export default function OurTeamPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/career"
-              className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:bg-secondary transition-colors"
+              className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:bg-secondary transition-colors hover:text-yellow-500"
             >
               View Open Positions
             </a>
             <a
               href="/contact"
-              className="border-2 border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors"
+              className="border-2 border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-yellow-500 transition-colors"
             >
               Contact HR
             </a>

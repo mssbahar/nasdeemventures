@@ -190,102 +190,107 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      {/* Why Choose Nasdeem Section */}
-      <SectionWrapper className="relative overflow-hidden bg-gradient-to-br from-zinc-900 via-black to-zinc-800 text-white">
-        {/* Decorative gradient glow */}
-        <div className="pointer-events-none absolute -top-20 -right-32 h-80 w-80 rounded-full bg-accent/20 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-secondary/10 blur-3xl" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Why Choose Nasdeem Ventures
+      {/* Our Values Section */}
+      <SectionWrapper className="bg-gray-50">
+        <div className="w-full">
+          <div className="text-center mb-16 px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
+              Our Values
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We combine industry expertise with cutting-edge technology to deliver 
-              exceptional results for our clients.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              The <span className="font-bold text-primary">NASDEEM</span> principles that guide everything we do
             </p>
           </div>
-          {/* Stats Row */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center group">
-              <RollingNumber target={20} suffix="" delay={0.1} />
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="text-xl text-white"
-              >
-                Years Experience
-              </motion.p>
+          
+          {/* Values Cards - Full Width */}
+          <div className="relative h-[500px] w-full">
+            <div className="flex gap-2 overflow-x-auto pb-4 scrollbar-hide h-full px-2 justify-center">
+              {[
+                {
+                  letter: 'N',
+                  title: 'Novelty',
+                  description: 'We embrace new ideas and innovative solutions to drive progress and stay ahead',
+                  image: '/assets/images/lab.png'
+                },
+                {
+                  letter: 'A',
+                  title: 'Accountability',
+                  description: 'We take ownership of our actions and deliver on our commitments with responsibility',
+                  image: '/assets/images/team.jpg'
+                },
+                {
+                  letter: 'S',
+                  title: 'Safety',
+                  description: 'We protect our staff, contractors and community where we operate',
+                  image: '/assets/images/demolition.png'
+                },
+                {
+                  letter: 'D',
+                  title: 'Dedication',
+                  description: 'We commit ourselves fully to excellence and work with unwavering determination',
+                  image: '/assets/images/schedule-waste.png'
+                },
+                {
+                  letter: 'E',
+                  title: 'Excellence',
+                  description: 'We strive for the highest standards in everything we do, delivering quality results',
+                  image: '/assets/images/transportation.png'
+                },
+                {
+                  letter: 'E',
+                  title: 'Environment',
+                  description: 'Committed to sustainable practices and protecting our planet for future generations',
+                  image: '/assets/images/palmoil.jpg'
+                },
+                {
+                  letter: 'M',
+                  title: 'Mutual Respect',
+                  description: 'We value every individual and work together as one unified team',
+                  image: '/assets/images/team2.jpg'
+                }
+              ].map((value, index) => (
+                <motion.div
+                  key={value.title}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group relative flex-shrink-0 w-64 h-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer"
+                  style={{ marginLeft: index > 0 ? '-20px' : '0' }}
+                >
+                  {/* Background Image */}
+                  <Image
+                    src={value.image}
+                    alt={value.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  
+                  {/* Dark Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent group-hover:from-black/60 group-hover:via-black/20 transition-all duration-300" />
+                  
+                  {/* Content */}
+                  <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                    {/* Decorative Letter */}
+                    <div className="absolute top-4 left-4">
+                      <span className="text-8xl font-black text-white/40 group-hover:text-[#FBBF24]/60 transition-colors duration-300 drop-shadow-2xl group-hover:drop-shadow-[0_0_20px_rgba(251,191,36,0.5)]">
+                        {value.letter}
+                      </span>
+                    </div>
+                    
+                    {/* Value Title */}
+                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#FBBF24] transition-colors duration-300 drop-shadow-lg">
+                      {value.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="text-white text-base leading-relaxed group-hover:text-gray-100 transition-colors duration-300 drop-shadow-md">
+                      {value.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            <div className="text-center group">
-              <RollingNumber target={300} suffix="+" delay={0.3} />
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="text-xl text-white"
-              >
-                Satisfied Clients
-              </motion.p>
-            </div>
-            <div className="text-center group">
-              <RollingNumber target={50} suffix="+" delay={0.5} />
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                viewport={{ once: true }}
-                className="text-xl text-white"
-              >
-                Experienced Workers
-              </motion.p>
-            </div>
-          </div>
-
-          {/* Features Row */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="text-center group"
-            >
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-secondary rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
-                <Award className="w-16 h-16 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold mb-3 text-white">Fully Licensed</h3>
-              <p className="text-gray-300">DOE, KPDNKK, PDRM, MPOB & CIDB certified</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-center group"
-            >
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-secondary rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
-                <Truck className="w-16 h-16 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold mb-3 text-white">Own Transport Fleet</h3>
-              <p className="text-gray-300">Reliable, fast delivery nationwide</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="text-center group"
-            >
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-secondary rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
-                <Clock className="w-16 h-16 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold mb-3 text-white">24/7 Service</h3>
-              <p className="text-gray-300">Emergency support available</p>
-            </motion.div>
           </div>
         </div>
       </SectionWrapper>

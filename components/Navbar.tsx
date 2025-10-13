@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const [isLightBackground, setIsLightBackground] = useState(true)
+  const [isLightBackground, setIsLightBackground] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +20,7 @@ const Navbar = () => {
       // Check if we're on a page with dark background (like hero sections)
       const heroSection = document.querySelector('section[class*="bg-gradient"]')
       const isOnDarkPage = heroSection && window.scrollY < window.innerHeight
-      setIsLightBackground(!isOnDarkPage)
+      setIsLightBackground(false) // Always use white text when transparent
     }
 
     window.addEventListener('scroll', () => {
@@ -83,8 +83,6 @@ const Navbar = () => {
             <span className={`text-2xl font-bold ${
               isScrolled 
                 ? 'text-primary' 
-                : isLightBackground 
-                ? 'text-primary' 
                 : 'text-white'
             }`}>
               Nasdeem Ventures
@@ -102,10 +100,8 @@ const Navbar = () => {
               >
                 <Link
                   href={item.href}
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-lg font-medium transition-colors ${
                     isScrolled
-                      ? 'text-primary hover:text-accent'
-                      : isLightBackground
                       ? 'text-primary hover:text-accent'
                       : 'text-white hover:text-secondary'
                   }`}
@@ -145,10 +141,8 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <Link
               href="/contact"
-              className={`px-3 py-2 rounded-md text-base font-medium transition-colors ${
+              className={`px-3 py-2 rounded-md text-lg font-medium transition-colors ${
                 isScrolled
-                  ? 'text-primary hover:text-accent'
-                  : isLightBackground
                   ? 'text-primary hover:text-accent'
                   : 'text-white hover:text-secondary'
               }`}
@@ -166,15 +160,11 @@ const Navbar = () => {
               <X className={`w-6 h-6 ${
                 isScrolled 
                   ? 'text-primary' 
-                  : isLightBackground 
-                  ? 'text-primary' 
                   : 'text-white'
               }`} />
             ) : (
               <Menu className={`w-6 h-6 ${
                 isScrolled 
-                  ? 'text-primary' 
-                  : isLightBackground 
                   ? 'text-primary' 
                   : 'text-white'
               }`} />
