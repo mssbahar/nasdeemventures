@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import MusicToggle from './MusicToggle'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -137,8 +138,12 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Contact Us Button - match link color */}
-          <div className="hidden lg:block">
+          {/* Right side buttons */}
+          <div className="hidden lg:flex items-center space-x-4">
+            {/* Music Toggle */}
+            <MusicToggle isScrolled={isScrolled} />
+            
+            {/* Contact Us Button - match link color */}
             <Link
               href="/contact"
               className={`px-3 py-2 rounded-md text-lg font-medium transition-colors ${
@@ -207,7 +212,12 @@ const Navbar = () => {
                     )}
                   </div>
                 ))}
-                <div className="pt-4">
+                <div className="pt-4 space-y-3">
+                  {/* Music Toggle for Mobile */}
+                  <div className="flex justify-center">
+                    <MusicToggle isScrolled={true} />
+                  </div>
+                  
                   <Link
                     href="/contact"
                     className="block w-full bg-secondary text-secondary-foreground px-3 py-2 rounded-lg font-medium text-center"

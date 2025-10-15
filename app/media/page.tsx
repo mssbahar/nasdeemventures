@@ -1,15 +1,17 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import HeroSection from '@/components/HeroSection'
 import SectionWrapper from '@/components/SectionWrapper'
 import Image from 'next/image'
-import { ImageIcon, ExternalLink, X, ChevronLeft, ChevronRight, Linkedin, Facebook } from 'lucide-react'
+import { ImageIcon, ExternalLink, X, ChevronLeft, ChevronRight, Linkedin, Facebook, Play, Pause } from 'lucide-react'
 
 export default function MediaPage() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [selectedGallery, setSelectedGallery] = useState<{ images: string[], title: string } | null>(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isAutoScroll, setIsAutoScroll] = useState(false)
+  const autoScrollRef = useRef<NodeJS.Timeout | null>(null)
 
   const categories = ['All', 'Social Activities', 'Operations', 'Newsletter']
 
@@ -24,9 +26,13 @@ export default function MediaPage() {
       coverImage: '/assets/images/raya.jpeg',
       images: [
         '/assets/images/raya.jpeg',
-        '/assets/images/team.jpg',
-        '/assets/images/team2.jpg',
-        '/assets/images/reception.png'
+        '/assets/images/raya2.jpeg',
+        '/assets/images/raya3.jpeg',
+        '/assets/images/raya4.jpeg',
+        '/assets/images/raya5.jpeg',
+        '/assets/images/raya6.jpeg',
+        '/assets/images/raya7.jpeg',
+        '/assets/images/raya8.jpeg'
       ],
       thumbnailImage: undefined,
       externalLink: undefined,
@@ -41,9 +47,14 @@ export default function MediaPage() {
       coverImage: '/assets/images/masjid.jpg',
       images: [
         '/assets/images/masjid.jpg',
-        '/assets/images/team.jpg',
-        '/assets/images/team2.jpg',
-        '/assets/images/reception.png'
+        '/assets/images/masjid2.jpeg',
+        '/assets/images/masjid3.jpeg',
+        '/assets/images/masjid4.jpeg',
+        '/assets/images/masjid5.jpeg',
+        '/assets/images/masjid6.jpeg',
+        '/assets/images/masjid7.jpeg',
+        '/assets/images/masjid8.jpeg',
+        '/assets/images/masjid9.jpeg',
       ],
       thumbnailImage: undefined,
       externalLink: undefined,
@@ -55,12 +66,14 @@ export default function MediaPage() {
       description: 'A health and wellness initiative encouraging our team members to lead healthier lifestyles through fitness challenges and healthy living programs.',
       date: '2025-02-01',
       category: 'social' as const,
-      coverImage: '/assets/images/team2.jpg',
+      coverImage: '/assets/images/slim1.jpeg',
       images: [
-        '/assets/images/team2.jpg',
-        '/assets/images/team.jpg',
-        '/assets/images/play.jpg',
-        '/assets/images/meeting.jpg'
+        '/assets/images/slim1.jpeg',
+        '/assets/images/slim2.jpeg',
+        '/assets/images/slim3.jpeg',
+        '/assets/images/slim4.jpeg',
+        '/assets/images/slim5.jpeg',
+        '/assets/images/slim6.jpeg'
       ],
       thumbnailImage: undefined,
       externalLink: undefined,
@@ -292,6 +305,27 @@ export default function MediaPage() {
     }
   }
 
+  const toggleAutoScroll = () => {
+    setIsAutoScroll(!isAutoScroll)
+  }
+
+  const startAutoScroll = () => {
+    if (selectedGallery && selectedGallery.images.length > 1) {
+      autoScrollRef.current = setInterval(() => {
+        setCurrentImageIndex((prev) => 
+          prev === selectedGallery.images.length - 1 ? 0 : prev + 1
+        )
+      }, 3000) // Change image every 3 seconds
+    }
+  }
+
+  const stopAutoScroll = () => {
+    if (autoScrollRef.current) {
+      clearInterval(autoScrollRef.current)
+      autoScrollRef.current = null
+    }
+  }
+
   const handleKeyDown = (e: KeyboardEvent) => {
     if (!selectedGallery) return
     
@@ -314,13 +348,28 @@ export default function MediaPage() {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'unset'
+      stopAutoScroll()
+      setIsAutoScroll(false)
     }
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = 'unset'
+      stopAutoScroll()
     }
   }, [selectedGallery])
+
+  useEffect(() => {
+    if (isAutoScroll) {
+      startAutoScroll()
+    } else {
+      stopAutoScroll()
+    }
+
+    return () => {
+      stopAutoScroll()
+    }
+  }, [isAutoScroll, selectedGallery])
 
   const getCategoryBadge = (category: string) => {
     const categoryMap = {
@@ -468,49 +517,144 @@ export default function MediaPage() {
         </div>
       </SectionWrapper>
 
-      {/* Image Gallery Modal */}
+      {/* Enhanced Image Gallery Modal */}
       {selectedGallery && (
-        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
-          <div className="relative w-full h-full max-w-6xl max-h-[90vh] flex items-center justify-center">
-            {/* Close Button */}
-            <button
-              onClick={closeGallery}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-            >
-              <X className="w-6 h-6 text-white" />
-            </button>
-            
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevImage}
-              className="absolute left-4 z-10 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-            >
-              <ChevronLeft className="w-6 h-6 text-white" />
-            </button>
-            
-            <button
-              onClick={nextImage}
-              className="absolute right-4 z-10 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-            >
-              <ChevronRight className="w-6 h-6 text-white" />
-            </button>
-            
-            {/* Image */}
-            <div className="relative w-full h-full flex items-center justify-center">
-              <Image
-                src={selectedGallery.images[currentImageIndex]}
-                alt={`${selectedGallery.title} - Image ${currentImageIndex + 1}`}
-                width={800}
-                height={600}
-                className="max-w-full max-h-full object-contain rounded-lg"
-              />
+        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-300">
+          <div className="relative w-full h-full max-w-6xl max-h-[90vh] flex flex-col">
+            {/* Header */}
+            <div className="flex items-center justify-between p-4 bg-gradient-to-b from-black/80 to-transparent">
+              <div className="flex items-center space-x-4">
+                <div className="w-2 h-8 bg-gradient-to-b from-[#FBBF24] to-[#F59E0B] rounded-full"></div>
+                <div>
+                  <h3 className="text-xl font-bold text-white">{selectedGallery.title}</h3>
+                  <p className="text-white/70 text-sm">Gallery View</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center space-x-3">
+                {/* Auto-scroll Toggle Button */}
+                {selectedGallery.images.length > 1 && (
+                  <button
+                    onClick={toggleAutoScroll}
+                    className={`group flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 ${
+                      isAutoScroll 
+                        ? 'bg-[#FBBF24] text-black hover:bg-[#F59E0B]' 
+                        : 'bg-white/10 text-white hover:bg-white/20'
+                    }`}
+                  >
+                    {isAutoScroll ? (
+                      <Pause className="w-4 h-4" />
+                    ) : (
+                      <Play className="w-4 h-4" />
+                    )}
+                    <span className="text-sm font-medium">
+                      {isAutoScroll ? 'Pause' : 'Auto'}
+                    </span>
+                  </button>
+                )}
+                
+                {/* Close Button */}
+                <button
+                  onClick={closeGallery}
+                  className="group w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                >
+                  <X className="w-6 h-6 text-white group-hover:rotate-90 transition-transform duration-300" />
+                </button>
+              </div>
             </div>
             
-            {/* Image Counter */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-              <span className="text-white text-sm font-medium">
-                {currentImageIndex + 1} / {selectedGallery.images.length}
-              </span>
+            {/* Main Image Container - Fixed Size */}
+            <div className="relative flex-1 flex items-center justify-center p-4">
+              {/* Navigation Arrows */}
+              <button
+                onClick={prevImage}
+                className="absolute left-2 z-10 group w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={selectedGallery.images.length <= 1}
+              >
+                <ChevronLeft className="w-6 h-6 text-white group-hover:-translate-x-1 transition-transform duration-300" />
+              </button>
+              
+              <button
+                onClick={nextImage}
+                className="absolute right-2 z-10 group w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={selectedGallery.images.length <= 1}
+              >
+                <ChevronRight className="w-6 h-6 text-white group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
+              
+              {/* Main Image - Fixed Size Container */}
+              <div className="relative w-full h-full max-w-4xl max-h-[60vh] flex items-center justify-center group">
+                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-[0_0_50px_rgba(251,191,36,0.3)] transition-all duration-500">
+                  <Image
+                    src={selectedGallery.images[currentImageIndex]}
+                    alt={`${selectedGallery.title} - Image ${currentImageIndex + 1}`}
+                    fill
+                    className="object-contain transition-transform duration-500 group-hover:scale-105"
+                    priority
+                  />
+                  
+                  {/* Image Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Footer with Thumbnails and Controls */}
+            <div className="bg-gradient-to-t from-black/80 to-transparent p-4">
+              {/* Image Counter and Info */}
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-white/10 backdrop-blur-md rounded-full px-4 py-2">
+                    <span className="text-white text-sm font-medium">
+                      {currentImageIndex + 1} of {selectedGallery.images.length}
+                    </span>
+                  </div>
+                  <div className="w-32 h-1 bg-white/20 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-gradient-to-r from-[#FBBF24] to-[#F59E0B] transition-all duration-300"
+                      style={{ width: `${((currentImageIndex + 1) / selectedGallery.images.length) * 100}%` }}
+                    ></div>
+                  </div>
+                </div>
+                
+                {/* Auto-scroll Status */}
+                {selectedGallery.images.length > 1 && (
+                  <div className="flex items-center space-x-2 text-white/60 text-xs">
+                    <div className={`w-2 h-2 rounded-full ${isAutoScroll ? 'bg-[#FBBF24] animate-pulse' : 'bg-white/40'}`}></div>
+                    <span>{isAutoScroll ? 'Auto-scrolling' : 'Manual mode'}</span>
+                  </div>
+                )}
+              </div>
+              
+              {/* Thumbnail Strip */}
+              {selectedGallery.images.length > 1 && (
+                <div className="flex space-x-3 overflow-x-auto scrollbar-hide pb-2">
+                  {selectedGallery.images.map((image, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`relative flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden transition-all duration-300 ${
+                        index === currentImageIndex
+                          ? 'ring-2 ring-[#FBBF24] scale-110 shadow-lg'
+                          : 'hover:scale-105 opacity-70 hover:opacity-100'
+                      }`}
+                    >
+                      <Image
+                        src={image}
+                        alt={`Thumbnail ${index + 1}`}
+                        width={64}
+                        height={48}
+                        className="w-full h-full object-cover"
+                      />
+                      {index === currentImageIndex && (
+                        <div className="absolute inset-0 bg-[#FBBF24]/20 flex items-center justify-center">
+                          <div className="w-1.5 h-1.5 bg-[#FBBF24] rounded-full"></div>
+                        </div>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>

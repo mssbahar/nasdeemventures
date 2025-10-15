@@ -238,7 +238,7 @@ export default function CareerPage() {
         
         <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">What is the Nasdeem Ventures team like?</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">How would you describe the Nasdeem Ventures team?</h2>
             <p className="text-xl text-gray-200 max-w-4xl mx-auto mb-4">
               Nasdeem Ventures is an equal opportunity employer that has the awesome opportunity to add teammates from across Malaysia! We're united by our environmental values, and we celebrate our unique differences.
             </p>
@@ -273,7 +273,7 @@ export default function CareerPage() {
                   </div>
                   <div className="w-96 h-72 rounded-xl overflow-hidden shadow-2xl border border-white/30 backdrop-blur-sm bg-white/10">
                     <Image
-                      src="/assets/images/play.jpg"
+                      src="/assets/images/oilspillage2.png"
                       alt="Career Development"
                       width={384}
                       height={288}

@@ -118,7 +118,7 @@ export default function OurStoryPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
-                Who Are We
+                Who We Are
               </h2>
               <p className="text-lg text-muted-foreground mb-6 text-justify">
                 Nasdeem Ventures Sdn Bhd was founded with a clear vision: to become 

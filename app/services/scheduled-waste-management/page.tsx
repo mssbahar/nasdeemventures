@@ -1,7 +1,7 @@
 import HeroSection from '@/components/HeroSection'
 import SectionWrapper from '@/components/SectionWrapper'
 import Image from 'next/image'
-import { CheckCircle, Truck, FileText, Wrench, Trash2, Shield, Users, Clock } from 'lucide-react'
+import { CheckCircle, Truck, FileText, Wrench, Trash2, Shield, FlaskConical } from 'lucide-react'
 
 export default function ScheduledWasteManagementPage() {
   const wasteCategories = [
@@ -161,7 +161,7 @@ export default function ScheduledWasteManagementPage() {
 
   const whatWeDo = [
     {
-      icon: <FileText className="w-12 h-12" />,
+      icon: <FlaskConical className="w-12 h-12" />,
       title: 'Consultation & Lab Sampling',
       description: 'We provide expert consultation on waste management strategies with comprehensive lab sampling to accurately identify and classify your scheduled waste codes.',
       details: [
@@ -201,7 +201,7 @@ export default function ScheduledWasteManagementPage() {
     },
     {
       icon: <Truck className="w-12 h-12" />,
-      title: 'Own Transport Fleet',
+      title: 'Own Transportation Fleet',
       description: 'Fast and efficient transportation using our own specialized tanker fleet, ensuring quick and reliable waste collection and delivery.',
       details: [
         'Own fleet of specialized tankers and transport vehicles',
@@ -210,7 +210,7 @@ export default function ScheduledWasteManagementPage() {
         'Real-time tracking and monitoring',
         'Comprehensive insurance coverage'
       ],
-      highlight: 'With our own transport fleet including specialized tankers, we can provide faster, more reliable waste collection and transportation services.'
+      highlight: 'With our own transportation fleet including specialized tankers, we can provide faster, more reliable waste collection and transportation services.'
     },
     {
       icon: <Trash2 className="w-12 h-12" />,
@@ -248,7 +248,7 @@ export default function ScheduledWasteManagementPage() {
     },
     {
       image: '/assets/images/transportation.png',
-      title: 'Own Transport Fleet',
+      title: 'Own Transportation Fleet',
       description: 'With our specialized tanker fleet, we provide faster, more reliable waste collection and transportation services',
       color: 'orange'
     },
@@ -320,13 +320,24 @@ export default function ScheduledWasteManagementPage() {
       </SectionWrapper>
 
       {/* Waste Categories */}
-      <SectionWrapper id="categories" className="bg-muted">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionWrapper id="categories" className="relative">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/images/nasdeem.jpg"
+            alt="Background"
+            fill
+            className="object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
               Scheduled Waste Categories
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-white/90 max-w-3xl mx-auto">
               We handle 19 categories of scheduled wastes as defined by the Department of Environment (DOE)
             </p>
           </div>
@@ -395,21 +406,21 @@ export default function ScheduledWasteManagementPage() {
           
           {/* Summary Stats */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="text-3xl font-bold text-primary mb-2">19</div>
-              <div className="text-gray-600">Total Categories</div>
+            <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg shadow-sm text-center border border-white/20">
+              <div className="text-3xl font-bold text-white mb-2">19</div>
+              <div className="text-white/80">Total Categories</div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="text-3xl font-bold text-accent mb-2">9</div>
-              <div className="text-gray-600">Industry Types</div>
+            <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg shadow-sm text-center border border-white/20">
+              <div className="text-3xl font-bold text-white mb-2">9</div>
+              <div className="text-white/80">Industry Types</div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
-              <div className="text-gray-600">DOE Compliance</div>
+            <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg shadow-sm text-center border border-white/20">
+              <div className="text-3xl font-bold text-white mb-2">100%</div>
+              <div className="text-white/80">DOE Compliance</div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
-              <div className="text-gray-600">Service Support</div>
+            <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg shadow-sm text-center border border-white/20">
+              <div className="text-3xl font-bold text-white mb-2">24/7</div>
+              <div className="text-white/80">Service Support</div>
             </div>
           </div>
         </div>

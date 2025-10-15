@@ -3,12 +3,12 @@
 import HeroSection from '@/components/HeroSection'
 import SectionWrapper from '@/components/SectionWrapper'
 import Image from 'next/image'
-import { CheckCircle, Fuel, Shield, Truck, Award, Zap, Globe, Users, BarChart3, Star, ArrowRight, ChevronRight } from 'lucide-react'
+import { CheckCircle, Fuel, Shield, Truck, Award, Zap, Globe, BarChart3, Star, ArrowRight, ChevronRight, Droplets, Gauge, Wrench, Building2, MapPin, Clock } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 
 export default function PetroleumProductsPage() {
   const [isVisible, setIsVisible] = useState(false)
-  const [activeProduct, setActiveProduct] = useState(0)
 
   useEffect(() => {
     setIsVisible(true)
@@ -19,322 +19,421 @@ export default function PetroleumProductsPage() {
       name: 'Diesel',
       description: 'High-quality diesel fuel for industrial and commercial applications',
       icon: Fuel,
-      features: ['High efficiency', 'Low emissions', 'Reliable performance']
+      color: 'from-blue-500 to-blue-600'
     },
     {
       name: 'Petrol',
       description: 'Premium petrol for various industrial and commercial uses',
       icon: Zap,
-      features: ['Premium grade', 'Consistent quality', 'Wide compatibility']
+      color: 'from-red-500 to-red-600'
     },
     {
       name: 'Kerosene',
       description: 'Clean-burning kerosene for heating and industrial processes',
-      icon: Globe,
-      features: ['Clean burning', 'High purity', 'Versatile applications']
+      icon: Droplets,
+      color: 'from-green-500 to-green-600'
     },
     {
       name: 'Fuel Oil',
       description: 'Heavy fuel oil for power generation and industrial heating',
       icon: BarChart3,
-      features: ['High energy content', 'Cost effective', 'Industrial grade']
+      color: 'from-purple-500 to-purple-600'
     },
     {
       name: 'Lubricant Oil',
       description: 'Premium lubricating oils for machinery and equipment',
-      icon: Shield,
-      features: ['Superior protection', 'Extended life', 'Multi-grade options']
+      icon: Wrench,
+      color: 'from-orange-500 to-orange-600'
     }
   ]
 
   const trustedBrands = [
-    { name: 'Shell', logo: '/assets/images/shell-logo.png' },
-    { name: 'Petron', logo: '/assets/images/petron-logo.png' },
-    { name: 'BH Petrol', logo: '/assets/images/bh-petrol-logo.png' },
-    { name: 'Chevron', logo: '/assets/images/chevron-logo.png' }
-  ]
-
-  const fleetCapacities = [
-    { capacity: '5,000L', description: 'Small deliveries' },
-    { capacity: '10,000L', description: 'Medium operations' },
-    { capacity: '25,000L', description: 'Large scale' },
-    { capacity: '50,000L', description: 'Bulk supply' }
+    { name: 'Shell', logo: '/assets/images/shell.png', website: 'https://www.shell.com.my' },
+    { name: 'Petronas', logo: '/assets/images/petronas.png', website: 'https://www.petronas.com' },
+    { name: 'Petron', logo: '/assets/images/petron.png', website: 'https://www.petron.com.my' },
+    { name: 'BHPetrol', logo: '/assets/images/BHPetrol.png', website: 'https://www.bhpetrol.com.my' },
+    { name: 'Chevron', logo: '/assets/images/chevron.png', website: 'https://www.chevron.com' }
   ]
 
   const statistics = [
-    { number: '1M+', label: 'Litres per shipment', icon: Truck },
-    { number: '4', label: 'Trusted brands', icon: Star },
-    { number: '1000L+', label: 'Minimum delivery', icon: Fuel },
-    { number: 'Peninsular', label: 'Malaysia coverage', icon: Globe }
+    { number: '5,000L - 50,000L', label: 'Tanker Capacity Range', icon: Truck },
+    { number: '1,000,000L+', label: 'Maximum Per Shipment', icon: Gauge },
+    { number: 'Peninsular Malaysia', label: 'Coverage Area', icon: MapPin },
+    { number: '24/7', label: 'Service Availability', icon: Clock }
   ]
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <HeroSection
-        title="Petroleum Products"
-        subtitle="Licensed wholesale supplier of premium industrial petroleum products across Peninsular Malaysia"
-        backgroundImage="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop"
-        showButtons={true}
-        buttonText="Get Quote"
-        buttonLink="/contact"
-        secondaryButtonText="Our Products"
-        secondaryButtonLink="#products"
-      />
-
-      {/* Credentials Section */}
-      <SectionWrapper className="bg-gradient-to-r from-primary/5 to-accent/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-primary to-accent rounded-full mb-6">
-              <Award className="w-10 h-10 text-white" />
+      <div className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop"
+            alt="Petroleum Products"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* KPDNHEP Badge */}
+            <div className="inline-flex items-center justify-center bg-[#FBBF24] text-black px-6 py-3 rounded-full text-sm font-bold mb-8 shadow-lg">
+              <Award className="w-5 h-5 mr-2" />
+              Ministry of Domestic Trade and Consumer Affairs (KPDNHEP) Licensed
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-              Licensed & Certified
+            
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+              Industrial Petroleum Products
+            </h1>
+            <h2 className="text-2xl lg:text-3xl font-semibold mb-4 text-[#FBBF24]">
+              Licensed Wholesale Supplier - CSA & PDA Certified
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Nasdeem Ventures Sdn Bhd is a licensed holder of <span className="font-semibold text-primary">CSA</span> and <span className="font-semibold text-primary">PDA</span>, 
-              issued by the Ministry of Domestic Trade and Consumer Affairs (KPDNHEP), ensuring 
-              regulatory compliance and quality assurance in all our operations.
+            <p className="text-xl lg:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed">
+              Reliable Fuel Solutions Across Peninsular Malaysia
             </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/contact"
+                className="bg-[#FBBF24] text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#F59E0B] transition-colors uppercase tracking-wide"
+              >
+                Request Quote
+              </a>
+              <a
+                href="#products"
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-colors uppercase tracking-wide"
+              >
+                Our Products
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Company Introduction Section */}
+      <SectionWrapper className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+                Professional Excellence in Petroleum Supply
+              </h2>
+              <p className="text-lg text-[#4B5563] mb-6 leading-relaxed">
+                Nasdeem Ventures Sdn Bhd stands as a distinguished licensed holder of <span className="font-bold text-black">CSA</span> and <span className="font-bold text-black">PDA</span> certifications, 
+                issued by the Ministry of Domestic Trade and Consumer Affairs (KPDNHEP). Our commitment to regulatory compliance 
+                and quality assurance drives every aspect of our operations.
+              </p>
+              <p className="text-lg text-[#4B5563] mb-8 leading-relaxed">
+                With years of industry expertise, we deliver comprehensive petroleum solutions that meet the highest standards 
+                of quality, safety, and environmental responsibility across Peninsular Malaysia.
+              </p>
+              
+              {/* Certifications */}
+              <div className="flex items-center space-x-6">
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-6 h-6 text-[#FBBF24]" />
+                  <span className="text-lg font-semibold text-black">CSA Licensed</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-6 h-6 text-[#FBBF24]" />
+                  <span className="text-lg font-semibold text-black">PDA Certified</span>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="bg-gradient-to-br from-[#F9FAFB] to-white rounded-2xl p-8 shadow-xl border border-[#E5E5E5]">
+                <div className="text-center">
+                  <div className="w-24 h-24 bg-[#FBBF24] rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Award className="w-12 h-12 text-black" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-black mb-4">KPDNHEP Licensed</h3>
+                  <p className="text-[#4B5563] leading-relaxed">
+                    Fully certified and compliant with all Malaysian regulatory requirements for petroleum product distribution.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </SectionWrapper>
 
       {/* Products Section */}
-      <SectionWrapper id="products">
+      <SectionWrapper className="bg-[#F9FAFB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-              Our Product Range
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+              Our Products
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We specialize in the wholesale supply of industrial petroleum products, 
-              delivering reliable and high-quality fuel solutions tailored to your needs.
+            <p className="text-xl text-[#4B5563] max-w-3xl mx-auto leading-relaxed">
+              We specialize in the wholesale supply of industrial petroleum products, delivering reliable and high-quality fuel solutions tailored to your specific needs.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
             {products.map((product, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-accent/20 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-                onMouseEnter={() => setActiveProduct(index)}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 text-center border border-[#E5E5E5] hover:border-[#FBBF24] hover:-translate-y-2"
               >
-                <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-primary to-accent rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className={`w-16 h-16 bg-gradient-to-r ${product.color} rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <product.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
+                <h3 className="text-xl font-bold text-black mb-3 group-hover:text-[#FBBF24] transition-colors">
                   {product.name}
                 </h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-[#4B5563] text-sm leading-relaxed">
                   {product.description}
                 </p>
-                <ul className="space-y-2">
-                  {product.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                      <CheckCircle className="w-4 h-4 text-accent mr-2 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </SectionWrapper>
 
-      {/* Trusted Brands Section */}
-      <SectionWrapper className="bg-gradient-to-r from-gray-50 to-gray-100">
+      {/* Authorized Brands Section */}
+      <SectionWrapper className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-              Trusted Brand Partners
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-black mb-4">
+              Authorized Supplier For
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We are proud to be an authorized supplier for trusted brands, 
-              delivering reliable and high-quality fuel solutions.
+            <h3 className="text-2xl text-[#4B5563] mb-8">
+              Trusted Petroleum Brands
+            </h3>
+            <p className="text-lg text-[#4B5563] max-w-3xl mx-auto">
+              We are proud to be an authorized supplier for leading petroleum brands, ensuring quality and reliability in every delivery.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
             {trustedBrands.map((brand, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 p-8 text-center ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group flex justify-center"
               >
-                <div className="w-24 h-24 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-2xl font-bold text-primary">{brand.name.charAt(0)}</span>
-                </div>
-                <h3 className="text-lg font-semibold text-primary group-hover:text-accent transition-colors">
-                  {brand.name}
-                </h3>
-              </div>
+                <a
+                  href={brand.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block transition-all duration-300 hover:scale-110 hover:drop-shadow-lg"
+                >
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    width={120}
+                    height={60}
+                    className="transition-all duration-300 group-hover:brightness-130"
+                  />
+                </a>
+              </motion.div>
             ))}
           </div>
         </div>
       </SectionWrapper>
 
-      {/* Fleet Capabilities Section */}
-      <SectionWrapper>
+      {/* Logistics & Fleet Section */}
+      <SectionWrapper className="bg-[#F9FAFB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-                Our Fleet Capabilities
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+                Logistics Infrastructure
               </h2>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-xl text-[#4B5563] mb-8 leading-relaxed">
                 To ensure flexible and efficient distribution, we operate our own fleet of road tankers 
                 with capacities ranging from 5,000 litres to 50,000 litres. Our logistics infrastructure 
                 is capable of handling deliveries from as little as 1,000 litres up to more than 
                 1 million litres per shipment.
               </p>
               
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                {fleetCapacities.map((fleet, index) => (
-                  <div
-                    key={index}
-                    className={`bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl p-6 border border-primary/10 hover:border-accent/20 transition-all duration-300 ${
-                      isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-                    }`}
-                    style={{ transitionDelay: `${index * 100}ms` }}
-                  >
-                    <div className="text-3xl font-bold text-primary mb-2">{fleet.capacity}</div>
-                    <div className="text-muted-foreground">{fleet.description}</div>
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-[#FBBF24] rounded-lg flex items-center justify-center">
+                    <Truck className="w-6 h-6 text-black" />
                   </div>
-                ))}
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <Truck className="w-8 h-8 text-accent" />
-                <div>
-                  <div className="text-lg font-semibold text-primary">Custom Logistics</div>
-                  <div className="text-muted-foreground">Tailored to your operational needs</div>
+                  <div>
+                    <h3 className="text-lg font-bold text-black">Own Fleet Operations</h3>
+                    <p className="text-[#4B5563]">Reliable, fast delivery nationwide</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-[#FBBF24] rounded-lg flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-black" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-black">Peninsular Malaysia Coverage</h3>
+                    <p className="text-[#4B5563]">Complete geographic reach</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-[#FBBF24] rounded-lg flex items-center justify-center">
+                    <Gauge className="w-6 h-6 text-black" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-black">Flexible Capacity</h3>
+                    <p className="text-[#4B5563]">From 1,000L to 1M+ litres per shipment</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="relative">
-              <div className="bg-gradient-to-r from-primary to-accent rounded-2xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-6">Delivery Statistics</h3>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="bg-gradient-to-br from-black to-gray-800 rounded-2xl p-8 text-white">
+                <h3 className="text-2xl font-bold mb-8 text-center">Fleet Capabilities</h3>
                 <div className="space-y-6">
                   {statistics.map((stat, index) => (
-                    <div
+                    <motion.div
                       key={index}
-                      className={`flex items-center space-x-4 ${
-                        isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-                      }`}
-                      style={{ transitionDelay: `${index * 200}ms` }}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="flex items-center space-x-4"
                     >
-                      <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                        <stat.icon className="w-6 h-6" />
+                      <div className="w-12 h-12 bg-[#FBBF24] rounded-lg flex items-center justify-center">
+                        <stat.icon className="w-6 h-6 text-black" />
                       </div>
                       <div>
-                        <div className="text-2xl font-bold">{stat.number}</div>
-                        <div className="text-white/80">{stat.label}</div>
+                        <div className="text-xl font-bold text-[#FBBF24]">{stat.number}</div>
+                        <div className="text-gray-300">{stat.label}</div>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </SectionWrapper>
 
-      {/* Why Choose Us Section */}
-      <SectionWrapper className="bg-gradient-to-r from-primary/5 to-accent/5">
+      {/* Key Statistics Section */}
+      <SectionWrapper className="bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-              Why Choose Nasdeem Ventures?
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              Industry Leadership
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              For dependable, high-volume petroleum supply backed by experience and reliability, 
-              choose Nasdeem Ventures as your trusted fuel partner.
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Proven capabilities and extensive experience in petroleum product distribution
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div
-              className={`text-center group ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: '0ms' }}
-            >
-              <div className="w-20 h-20 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Shield className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-primary mb-4">Licensed & Certified</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Fully licensed by KPDNHEP with CSA and PDA certifications, ensuring regulatory compliance and quality assurance.
-              </p>
-            </div>
-
-            <div
-              className={`text-center group ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: '200ms' }}
-            >
-              <div className="w-20 h-20 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Truck className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-primary mb-4">Flexible Distribution</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Own fleet with capacities from 5,000L to 50,000L, handling deliveries from 1,000L to 1M+ litres per shipment.
-              </p>
-            </div>
-
-            <div
-              className={`text-center group ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: '400ms' }}
-            >
-              <div className="w-20 h-20 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Star className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-primary mb-4">Trusted Brands</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Authorized supplier for Shell, Petron, BH Petrol, and Chevron, delivering premium quality fuel solutions.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {statistics.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center group"
+              >
+                <div className="w-20 h-20 bg-[#FBBF24] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <stat.icon className="w-10 h-10 text-black" />
+                </div>
+                <div className="text-3xl lg:text-4xl font-bold text-[#FBBF24] mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-lg text-gray-300">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </SectionWrapper>
 
-      {/* Call to Action */}
-      <SectionWrapper className="bg-gradient-to-r from-primary to-accent text-white">
+      {/* Call-to-Action Section */}
+      <SectionWrapper className="bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Ready to Partner with Us?
-          </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Contact us today for dependable, high-volume petroleum supply backed by experience and reliability.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact"
-              className="bg-white text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors hover:text-yellow-500 flex items-center justify-center group"
-            >
-              Get Quote
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="tel:604-5010800"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary transition-colors flex items-center justify-center group"
-            >
-              Call: 604-5010800
-              <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+              For Dependable, High-Volume Petroleum Supply
+            </h2>
+            <p className="text-xl text-[#4B5563] mb-12 max-w-3xl mx-auto leading-relaxed">
+              Choose Nasdeem Ventures as Your Trusted Fuel Partner
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <a
+                href="/contact"
+                className="bg-[#FBBF24] text-black px-12 py-4 rounded-lg font-bold text-xl hover:bg-[#F59E0B] transition-colors uppercase tracking-wide shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              >
+                Contact Us
+              </a>
+              <a
+                href="tel:604-5010800"
+                className="border-2 border-black text-black px-12 py-4 rounded-lg font-bold text-xl hover:bg-black hover:text-white transition-colors uppercase tracking-wide shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              >
+                Call: 604-5010800
+              </a>
+            </div>
+          </motion.div>
         </div>
       </SectionWrapper>
     </div>

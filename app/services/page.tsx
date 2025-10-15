@@ -111,14 +111,14 @@ export default function ServicesPage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
               Our Services
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-justify">
+            <p className="text-lg text-muted-foreground max-w-5xl mx-auto text-justify">
               We offer a comprehensive range of industrial solutions designed to meet 
               your specific needs while ensuring full compliance with environmental regulations.
             </p>
           </div>
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-18xl mx-auto">
             {/* Top row - 3 services */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 justify-items-center mb-8">
               {services.slice(0, 3).map((service, index) => (
                 <ServiceCard
                   key={service.title}
@@ -131,7 +131,7 @@ export default function ServicesPage() {
               ))}
             </div>
             {/* Bottom row - 2 services centered */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center w-full">
               {services.slice(3, 5).map((service, index) => (
                 <ServiceCard
                   key={service.title}

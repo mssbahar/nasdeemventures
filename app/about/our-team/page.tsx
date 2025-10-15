@@ -6,13 +6,13 @@ import { Linkedin, Mail, Phone } from 'lucide-react'
 export default function OurTeamPage() {
   const teamMembers = [
     {
-      name: 'Haslida Abdul Ghani',
-      position: 'CEO',
+      name: 'Nur Farah Azlin',
+      position: 'Management Advisor',
       location: 'Penang',
-      image: '/assets/images/ida.jpg',
-      imageHover: '/assets/images/ida.jpg',
-      bio: 'I lead our strategic vision and drive organizational excellence across all operations, ensuring sustainable growth and environmental responsibility.',
-      email: 'haslida@nasdeemventures.com',
+      image: '/assets/images/farah1.jpg',
+      imageHover: '/assets/images/farah2.jpg',
+      bio: 'I provide strategic management guidance to optimize our operational processes and ensure regulatory compliance across all waste management services.',
+      email: 'farah@nasdeemventures.com',
       linkedin: '#'
     },
     {
@@ -26,13 +26,13 @@ export default function OurTeamPage() {
       linkedin: '#'
     },
     {
-      name: 'Nur Farah Azlin',
-      position: 'Management Advisor',
+      name: 'Haslida Abdul Ghani',
+      position: 'CEO',
       location: 'Penang',
-      image: '/assets/images/farah1.jpg',
-      imageHover: '/assets/images/farah2.jpg',
-      bio: 'I provide strategic management guidance to optimize our operational processes and ensure regulatory compliance across all waste management services.',
-      email: 'farah@nasdeemventures.com',
+      image: '/assets/images/ida.jpg',
+      imageHover: '/assets/images/ida.jpg',
+      bio: 'I lead our strategic vision and drive organizational excellence across all operations, ensuring sustainable growth and environmental responsibility.',
+      email: 'haslida@nasdeemventures.com',
       linkedin: '#'
     },
     {

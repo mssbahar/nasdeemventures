@@ -107,11 +107,11 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
-                Who Are We
+                Who We Are
               </h2>
               <p className="text-lg text-muted-foreground mb-6 text-justify">
                 Nasdeem Ventures Sdn Bhd is a leading Bumiputera company specializing in 
-                scheduled waste management and industrial solutions. With years of experience 
+                scheduled waste management and industrial solutions. With 20 years of experience 
                 and a commitment to excellence, we provide comprehensive services that meet 
                 the highest standards of quality and environmental compliance.
               </p>
@@ -154,14 +154,14 @@ export default function Home() {
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
               Our Services
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-justify">
+            <p className="text-lg text-muted-foreground max-w-5xl mx-auto text-justify">
               We offer a comprehensive range of industrial solutions designed to meet 
               your specific needs while ensuring full compliance with environmental regulations.
             </p>
           </div>
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-18xl mx-auto">
             {/* Top row - 3 services */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 justify-items-center mb-8">
               {services.slice(0, 3).map((service, index) => (
                 <ServiceCard
                   key={service.title}
@@ -174,7 +174,7 @@ export default function Home() {
               ))}
             </div>
             {/* Bottom row - 2 services centered */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center w-full">
               {services.slice(3, 5).map((service, index) => (
                 <ServiceCard
                   key={service.title}
@@ -197,9 +197,6 @@ export default function Home() {
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
               Our Values
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              The <span className="font-bold text-primary">NASDEEM</span> principles that guide everything we do
-            </p>
           </div>
           
           {/* Values Cards - Full Width */}
@@ -210,7 +207,7 @@ export default function Home() {
                   letter: 'N',
                   title: 'Novelty',
                   description: 'We embrace new ideas and innovative solutions to drive progress and stay ahead',
-                  image: '/assets/images/lab.png'
+                  image: '/assets/images/lab2crop.png'
                 },
                 {
                   letter: 'A',
@@ -222,7 +219,7 @@ export default function Home() {
                   letter: 'S',
                   title: 'Safety',
                   description: 'We protect our staff, contractors and community where we operate',
-                  image: '/assets/images/demolition.png'
+                  image: '/assets/images/sampling1.png'
                 },
                 {
                   letter: 'D',
@@ -234,19 +231,19 @@ export default function Home() {
                   letter: 'E',
                   title: 'Excellence',
                   description: 'We strive for the highest standards in everything we do, delivering quality results',
-                  image: '/assets/images/transportation.png'
+                  image: '/assets/images/doelesen.png'
                 },
                 {
                   letter: 'E',
                   title: 'Environment',
                   description: 'Committed to sustainable practices and protecting our planet for future generations',
-                  image: '/assets/images/palmoil.jpg'
+                  image: '/assets/images/environment.jpg'
                 },
                 {
                   letter: 'M',
                   title: 'Mutual Respect',
                   description: 'We value every individual and work together as one unified team',
-                  image: '/assets/images/team2.jpg'
+                  image: '/assets/images/raya.jpeg'
                 }
               ].map((value, index) => (
                 <motion.div
