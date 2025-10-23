@@ -1,117 +1,23 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { useMusic } from './MusicContext'
 
 interface MusicToggleProps {
   isScrolled: boolean
 }
 
 const MusicToggle = ({ isScrolled }: MusicToggleProps) => {
-  const [isPlaying, setIsPlaying] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
-  const [isAudioLoaded, setIsAudioLoaded] = useState(false)
-  const audioRef = useRef<HTMLAudioElement | null>(null)
   const [supportsReducedMotion, setSupportsReducedMotion] = useState(false)
+  const { isPlaying, toggleMusic, isAudioLoaded } = useMusic()
 
   useEffect(() => {
     // Check for reduced motion preference
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     setSupportsReducedMotion(mediaQuery.matches)
-    
-    // Create audio element
-    audioRef.current = new Audio()
-    audioRef.current.loop = true
-    audioRef.current.volume = 0.25 // 25% volume for subtle background music
-    audioRef.current.preload = 'auto'
-    
-    // Set up audio source
-    audioRef.current.src = '/assets/audio/music.mp3'
-    
-    // Handle audio loading
-    const handleAudioLoad = () => {
-      setIsAudioLoaded(true)
-      console.log('🎵 Audio loaded successfully:', audioRef.current?.src)
-    }
-    
-    const handleAudioError = (error: any) => {
-      console.error('❌ Audio loading failed:', error)
-      console.error('Audio src:', audioRef.current?.src)
-      setIsAudioLoaded(false)
-    }
-    
-    // Add event listeners
-    audioRef.current.addEventListener('canplaythrough', handleAudioLoad)
-    audioRef.current.addEventListener('error', handleAudioError)
-    
-    // Try to load the audio
-    audioRef.current.load()
-    
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.removeEventListener('canplaythrough', handleAudioLoad)
-        audioRef.current.removeEventListener('error', handleAudioError)
-        audioRef.current.pause()
-        audioRef.current = null
-      }
-    }
   }, [])
-
-  const toggleMusic = async () => {
-    if (!audioRef.current) return
-
-    try {
-      if (isPlaying) {
-        // Fade out
-        const fadeOut = setInterval(() => {
-          if (audioRef.current && audioRef.current.volume > 0.01) {
-            audioRef.current.volume -= 0.01
-          } else {
-            clearInterval(fadeOut)
-            if (audioRef.current) {
-              audioRef.current.pause()
-              audioRef.current.volume = 0.25 // Reset volume for next play
-            }
-          }
-        }, 50)
-        setIsPlaying(false)
-      } else {
-        // Check if audio is loaded
-        if (isAudioLoaded && audioRef.current.src) {
-          console.log('Playing audio...')
-          // Fade in with actual audio
-          audioRef.current.volume = 0
-          await audioRef.current.play()
-          const fadeIn = setInterval(() => {
-            if (audioRef.current && audioRef.current.volume < 0.25) {
-              audioRef.current.volume += 0.01
-            } else {
-              clearInterval(fadeIn)
-            }
-          }, 50)
-          setIsPlaying(true)
-        } else {
-          console.log('Audio not loaded yet. Loading...')
-          // Try to load and play
-          audioRef.current.load()
-          audioRef.current.volume = 0
-          await audioRef.current.play()
-          const fadeIn = setInterval(() => {
-            if (audioRef.current && audioRef.current.volume < 0.25) {
-              audioRef.current.volume += 0.01
-            } else {
-              clearInterval(fadeIn)
-            }
-          }, 50)
-          setIsPlaying(true)
-        }
-      }
-    } catch (error) {
-      console.error('Audio playback failed:', error)
-      // Fallback: just toggle state without audio
-      setIsPlaying(!isPlaying)
-    }
-  }
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter' || event.key === ' ') {

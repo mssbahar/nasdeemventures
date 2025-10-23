@@ -270,13 +270,13 @@ export default function Home() {
                   <div className="absolute inset-0 p-6 flex flex-col justify-end">
                     {/* Decorative Letter */}
                     <div className="absolute top-4 left-4">
-                      <span className="text-8xl font-black text-white/40 group-hover:text-[#FBBF24]/60 transition-colors duration-300 drop-shadow-2xl group-hover:drop-shadow-[0_0_20px_rgba(251,191,36,0.5)]">
+                      <span className="text-8xl font-black text-white group-hover:text-[#FBBF24] transition-colors duration-300 drop-shadow-2xl group-hover:drop-shadow-[0_0_20px_rgba(251,191,36,0.5)] opacity-60 group-hover:opacity-80" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), -2px -2px 4px rgba(0,0,0,0.8), 2px -2px 4px rgba(0,0,0,0.8), -2px 2px 4px rgba(0,0,0,0.8)' }}>
                         {value.letter}
                       </span>
                     </div>
                     
                     {/* Value Title */}
-                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#FBBF24] transition-colors duration-300 drop-shadow-lg">
+                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-white transition-colors duration-300 drop-shadow-lg" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.8), 1px -1px 2px rgba(0,0,0,0.8), -1px 1px 2px rgba(0,0,0,0.8)' }}>
                       {value.title}
                     </h3>
                     

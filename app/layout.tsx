@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingElements from '@/components/FloatingElements'
+import { MusicProvider } from '@/components/MusicContext'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -36,12 +37,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.variable} ${amethysta.variable} ${anonymousPro.variable}`}>
       <body className="font-sans">
-        <Navbar />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
-        <FloatingElements />
+        <MusicProvider>
+          <Navbar />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+          <FloatingElements />
+        </MusicProvider>
       </body>
     </html>
   )

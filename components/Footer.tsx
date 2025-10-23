@@ -100,7 +100,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link href="/services/scheduled-waste-management" className="text-gray-300 hover:text-white transition-colors">
-                  Waste Management
+                  Scheduled Waste Management
                 </Link>
               </li>
               <li>
