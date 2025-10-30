@@ -248,24 +248,24 @@ export default function ServicesPage() {
       </SectionWrapper>
 
       {/* CTA Section */}
-      <SectionWrapper className="bg-gradient-to-r from-primary to-accent text-black">
+      <SectionWrapper className="bg-muted">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl text-black mb-8">
-              Contact us today to discuss your requirements and get a customized quote for our services
-            </p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
+            Ready to Get Started?
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            Contact us today to discuss your requirements and get a customized quote for our services
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-white text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors hover:text-yellow-500"
+              className="bg-accent text-accent-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-secondary transition-colors hover:text-yellow-500"
             >
               Get Free Quote
             </Link>
             <Link
               href="tel:604-5010800"
-              className="border-2 border-black text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-black hover:text-yellow-500 transition-colors"
+              className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary hover:text-yellow-500 transition-colors"
             >
               Call Now: 604-5010800
             </Link>

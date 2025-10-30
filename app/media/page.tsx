@@ -73,24 +73,10 @@ export default function MediaPage() {
         '/assets/images/slim3.jpeg',
         '/assets/images/slim4.jpeg',
         '/assets/images/slim5.jpeg',
-        '/assets/images/slim6.jpeg'
-      ],
-      thumbnailImage: undefined,
-      externalLink: undefined,
-      linkType: undefined
-    },
-    {
-      id: 4,
-      title: 'Penyerahan Duit Raya',
-      description: 'Annual tradition of distributing Raya money to our team members and their families, spreading joy and celebration during the festive season.',
-      date: '2025-04-10',
-      category: 'social' as const,
-      coverImage: '/assets/images/raya.jpeg',
-      images: [
-        '/assets/images/raya.jpeg',
-        '/assets/images/team.jpg',
-        '/assets/images/team2.jpg',
-        '/assets/images/reception.png'
+        '/assets/images/slim6.jpeg',
+        '/assets/images/slim7.jpeg',
+        '/assets/images/slim8.jpeg',
+        '/assets/images/slim9.jpeg'
       ],
       thumbnailImage: undefined,
       externalLink: undefined,
@@ -180,12 +166,19 @@ export default function MediaPage() {
       description: 'Comprehensive oil spillage training sessions for our team, ensuring preparedness and proper response procedures.',
       date: '2024-02-10',
       category: 'operations' as const,
-      coverImage: '/assets/images/oilspillage.jpeg',
+      coverImage: '/assets/images/oilspillagecover.jpeg',
       images: [
+        '/assets/images/oilspillagecover.jpeg',
         '/assets/images/oilspillage.jpeg',
         '/assets/images/oilspillage2.png',
         '/assets/images/oilspillage3.png',
-        '/assets/images/pump.png'
+        '/assets/images/pump.png',
+        '/assets/images/oilspillage4.jpeg',
+        '/assets/images/oilspillage5.jpeg',
+        '/assets/images/oilspillage6.jpeg',
+        '/assets/images/oilspillage7.jpeg',
+        '/assets/images/oilspillage8.jpeg',
+        '/assets/images/oilspillage9.jpeg'
       ],
       thumbnailImage: undefined,
       externalLink: undefined,

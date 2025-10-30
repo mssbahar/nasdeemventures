@@ -121,7 +121,7 @@ export default function OurStoryPage() {
                 Who We Are
               </h2>
               <p className="text-lg text-muted-foreground mb-6 text-justify">
-                Nasdeem Ventures Sdn Bhd was founded with a clear vision: to become 
+                Nasdeem Ventures Sdn Bhd was founded with a clear vision : to become the 
                 Malaysia's leading Bumiputera company in scheduled waste management and 
                 industrial solutions. Our journey began with a small team of dedicated 
                 professionals who believed in the importance of environmental responsibility 

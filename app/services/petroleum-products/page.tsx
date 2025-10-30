@@ -31,31 +31,31 @@ export default function PetroleumProductsPage() {
     {
       name: 'Diesel',
       description: 'High-quality diesel fuel for industrial and commercial applications',
-      image: '/assets/images/pump.png',
+      image: '/assets/images/diesel.jpg',
       color: 'from-blue-500 to-blue-600'
     },
     {
       name: 'Petrol',
       description: 'Premium petrol for various industrial and commercial uses',
-      image: '/assets/images/wholesale.png',
+      image: '/assets/images/petrol.jpg',
       color: 'from-red-500 to-red-600'
     },
     {
       name: 'Kerosene',
       description: 'Clean-burning kerosene for heating and industrial processes',
-      image: '/assets/images/palmoil.jpg',
+      image: '/assets/images/Kerosene.jpg',
       color: 'from-green-500 to-green-600'
     },
     {
       name: 'Fuel Oil',
       description: 'Heavy fuel oil for power generation and industrial heating',
-      image: '/assets/images/transportation.png',
+      image: '/assets/images/fuel.jpg',
       color: 'from-purple-500 to-purple-600'
     },
     {
       name: 'Lubricant Oil',
       description: 'Premium lubricating oils for machinery and equipment',
-      image: '/assets/images/schedule-waste.png',
+      image: '/assets/images/lubricant.jpg',
       color: 'from-orange-500 to-orange-600'
     }
   ]
@@ -77,11 +77,21 @@ export default function PetroleumProductsPage() {
 
   return (
     <div className="min-h-screen">
+      <style jsx>{`
+        @keyframes zoomLoop {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+      `}</style>
       {/* Hero Section */}
       <HeroSection
-        title="Industrial Petroleum Products"
+        title="Petroleum Products"
         subtitle="Licensed Wholesale Supplier - CSA & PDA Certified"
-        backgroundImage="/assets/images/wholesale.png"
+        backgroundImage="/assets/images/tank.jpg"
         showButtons={true}
         buttonText="Request Quote"
         buttonLink="/contact"
@@ -117,7 +127,7 @@ export default function PetroleumProductsPage() {
                   </div>
             <div className="relative">
               <Image
-                src="/assets/images/wholesale.png"
+                src="/assets/images/tank.jpg"
                 alt="Petroleum Supply"
                 width={600}
                 height={400}
@@ -169,15 +179,15 @@ export default function PetroleumProductsPage() {
                 >
                   <div className="flex flex-col items-center space-y-3">
                     {/* Product Image */}
-                    <div className="w-16 h-16 rounded-lg overflow-hidden">
+                    <div className="w-full h-48 rounded-lg overflow-hidden">
                       <Image
                         src={product.image}
                         alt={product.name}
-                        width={64}
-                        height={64}
+                        width={384}
+                        height={192}
                         className="w-full h-full object-cover"
                       />
-                </div>
+                    </div>
                     
                     {/* Product Info */}
                     <div className="text-center">
@@ -270,6 +280,181 @@ export default function PetroleumProductsPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </SectionWrapper>
+
+      {/* Fleet & Delivery Section */}
+      <SectionWrapper className="relative">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/images/nasdeem.jpg"
+            alt="Background"
+            fill
+            className="object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+              Our Fleet & Delivery Capabilities
+            </h2>
+            <p className="text-lg text-white/90 max-w-3xl mx-auto mb-8">
+              For dependable, high-volume petroleum supply backed by experience and reliability, choose Nasdeem Ventures as your trusted fuel partner
+            </p>
+          </motion.div>
+
+          {/* Fleet Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {/* Small Tanker */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 p-6 text-center border border-white/20"
+            >
+              <div className="mb-6">
+                <Image
+                  src="/assets/images/lorries.jpeg"
+                  alt="Small Tanker Truck"
+                  width={360}
+                  height={240}    
+                  className="mx-auto mb-4 transition-transform duration-300 hover:scale-110 cursor-zoom-in"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Small Fleet</h3>
+              <p className="text-2xl font-bold text-white mb-2">5,000L</p>
+              <p className="text-white/90">Perfect for small to medium operations</p>
+            </motion.div>
+
+            {/* Medium Tanker */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 p-6 text-center border border-white/20"
+            >
+              <div className="mb-6">
+                <Image
+                  src="/assets/images/trailer.jpeg"
+                  alt="Medium Tanker Truck"
+                  width={360}
+                  height={240}
+                  className="mx-auto mb-4 transition-transform duration-300 hover:scale-110 cursor-zoom-in"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Medium Fleet</h3>
+              <p className="text-2xl font-bold text-white mb-2">20,000L</p>
+              <p className="text-white/90">Ideal for large industrial operations</p>
+            </motion.div>
+
+            {/* Large Tanker */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 p-6 text-center border border-white/20"
+            >
+              <div className="mb-6">
+                <Image
+                  src="/assets/images/transportation.png"
+                  alt="Large Tanker Truck"
+                  width={360}
+                  height={240}
+                  className="mx-auto mb-4 transition-transform duration-300 hover:scale-110 cursor-zoom-in"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Large Fleet</h3>
+              <p className="text-2xl font-bold text-white mb-2">50,000L</p>
+              <p className="text-white/90">Maximum capacity for bulk operations</p>
+            </motion.div>
+          </div>
+
+          {/* Delivery Range Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-8 md:p-12 border border-white/20"
+          >
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold text-white mb-4">Delivery Range</h3>
+              <p className="text-lg text-white/90">Flexible delivery options to meet your specific needs</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div className="grid grid-cols-2 gap-6">
+                {/* Point 1 */}
+                <div className="flex flex-col items-center text-center space-y-3">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                    <Droplets className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-white">Minimum Order</h4>
+                    <p className="text-xl font-bold text-white">1,000L</p>
+                  </div>
+                </div>
+                
+                {/* Point 2 */}
+                <div className="flex flex-col items-center text-center space-y-3">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                    <Gauge className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-white">Maximum Per Shipment</h4>
+                    <p className="text-xl font-bold text-white">1,000,000L+</p>
+                  </div>
+                </div>
+
+                {/* Point 3 */}
+                <div className="flex flex-col items-center text-center space-y-3">
+                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-white">Coverage Area</h4>
+                    <p className="text-sm text-white/90">All Over Malaysia</p>
+                  </div>
+                </div>
+
+                {/* Point 4 */}
+                <div className="flex flex-col items-center text-center space-y-3">
+                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                    <Clock className="w-6 h-6 text-orange-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-white">Service Hours</h4>
+                    <p className="text-sm text-white/90">24/7 Available</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative">
+                <Image
+                  src="/assets/images/map.png"
+                  alt="Delivery Coverage Map"
+                  width={500}
+                  height={300}
+                  className="rounded-lg shadow-md border-2 border-white transition-transform duration-300 hover:scale-110 cursor-zoom-in animate-bounce"
+                  style={{
+                    animation: 'zoomLoop 3s ease-in-out infinite'
+                  }}
+                />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </SectionWrapper>
 

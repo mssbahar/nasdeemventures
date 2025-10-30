@@ -8,7 +8,7 @@ export default function ScheduledWasteManagementPage() {
     {
       code: 'SW110',
       category: 'E-Waste',
-      description: 'Waste from electronic devices (computers, CRT glass, PCB components) containing heavy metals',
+      description: 'Waste from electrical and electronic assemblies containing components such as accumulators, mercury-switches, glass from cathode-ray tubes and other activated glass polychlorinated biphenyl-capacitors, or contaminated with cadmium, mercury, lead, nickel, chromium, copper, lithium, silver, manganese or polychlorinated biphenyl',
       industryType: 'Electronics',
       status: 'New',
       color: 'blue'
@@ -16,7 +16,7 @@ export default function ScheduledWasteManagementPage() {
     {
       code: 'SW204',
       category: 'Heavy Metal Sludges',
-      description: 'Sludges containing one or several metals (chromium, zinc, lead) from industrial processes',
+      description: 'Sludges containing one or several metals including chromium, copper, nickel, zinc, lead, cadmium, aluminium, tin, vanadium and beryllium',
       industryType: 'Manufacturing',
       status: 'New',
       color: 'orange'
@@ -24,23 +24,23 @@ export default function ScheduledWasteManagementPage() {
     {
       code: 'SW305',
       category: 'Spent Lubricating Oil',
-      description: 'Used engine oil, gear oil, hydraulic fluid, and other lubricants',
+      description: 'Spent lubricating oil from various industrial and automotive applications',
       industryType: 'Automotive',
       status: 'Active',
-      color: 'green'
+      color: 'blue'
     },
     {
       code: 'SW306',
       category: 'Spent Hydraulic Oil',
-      description: 'Used hydraulic oil, transmission oil, and related hydraulic fluids',
+      description: 'Spent hydraulic oil from hydraulic systems and equipment',
       industryType: 'Industrial',
       status: 'Active',
-      color: 'red'
+      color: 'orange'
     },
     {
       code: 'SW307',
       category: 'Spent Mineral Oil-Water Emulsion',
-      description: 'Emulsion of oil and water from petroleum product processing',
+      description: 'Spent mineral oil-water emulsion from industrial processes',
       industryType: 'Petroleum',
       status: 'Active',
       color: 'red'
@@ -48,114 +48,114 @@ export default function ScheduledWasteManagementPage() {
     {
       code: 'SW308',
       category: 'Oil Tanker Sludges',
-      description: 'Sludges carried in oil tanker operations and storage',
+      description: 'Oil tanker sludges from marine transportation operations',
       industryType: 'Marine',
       status: 'Active',
-      color: 'blue'
+      color: 'teal'
     },
     {
       code: 'SW309',
-      category: 'Oil Water Mixtures',
-      description: 'Ballast water from tankers, washings containing oil',
+      category: 'Oil-Water Mixture',
+      description: 'Oil-water mixture such as ballast water from tankers and vessels',
       industryType: 'Marine',
       status: 'Active',
-      color: 'blue'
+      color: 'teal'
     },
     {
       code: 'SW310',
-      category: 'Waste Oil & Water Mixture',
-      description: 'Oil contaminated water from industrial operations',
+      category: 'Mineral Oil Storage Tank Sludge',
+      description: 'Sludge from mineral oil storage tank maintenance and operations',
+      industryType: 'Petroleum',
+      status: 'New',
+      color: 'red'
+    },
+    {
+      code: 'SW311',
+      category: 'Waste Oil or Oily Sludge',
+      description: 'Waste oil or oily sludge from various industrial processes',
       industryType: 'Industrial',
       status: 'New',
       color: 'orange'
     },
     {
-      code: 'SW311',
-      category: 'Oily Bilge Water',
-      description: 'Bilge water containing oil from marine vessels',
-      industryType: 'Marine',
-      status: 'New',
-      color: 'blue'
-    },
-    {
       code: 'SW312',
-      category: 'Ship Breaking Waste',
-      description: 'Waste materials from ship dismantling operations',
-      industryType: 'Marine',
+      category: 'Automotive Workshop Oily Residue',
+      description: 'Oily residue from automotive workshop, service station oil or grease interceptor',
+      industryType: 'Automotive',
       status: 'New',
       color: 'blue'
     },
     {
       code: 'SW313',
-      category: 'Waste Containing PCBs',
-      description: 'Polychlorinated biphenyls and related compounds',
-      industryType: 'Electronics',
+      category: 'Oil Contaminated Earth',
+      description: 'Oil contaminated earth from re-refining of used lubricating oil',
+      industryType: 'Petroleum',
       status: 'New',
-      color: 'blue'
+      color: 'red'
     },
     {
       code: 'SW314',
-      category: 'Transformer Oil',
-      description: 'Used transformer oil containing PCBs or other contaminants',
-      industryType: 'Utilities',
+      category: 'Oil Refinery Plant Sludge',
+      description: 'Oil or sludge from oil refinery plant maintenance operation',
+      industryType: 'Petroleum',
+      status: 'New',
+      color: 'red'
+    },
+    {
+      code: 'SW322',
+      category: 'Non-Halogenated Organic Solvents',
+      description: 'Waste of non-halogenated organic solvents from industrial processes',
+      industryType: 'Chemical',
       status: 'New',
       color: 'purple'
     },
     {
-      code: 'SW322',
-      category: 'Clinical Waste',
-      description: 'Medical waste from healthcare facilities',
-      industryType: 'Healthcare',
-      status: 'New',
-      color: 'red'
-    },
-    {
       code: 'SW323',
-      category: 'Pharmaceutical Waste',
-      description: 'Expired or contaminated pharmaceutical products',
-      industryType: 'Healthcare',
+      category: 'Halogenated Organic Solvents',
+      description: 'Waste of halogenated organic solvents from industrial processes',
+      industryType: 'Chemical',
       status: 'New',
-      color: 'red'
+      color: 'purple'
     },
     {
       code: 'SW324',
-      category: 'Laboratory Chemicals',
-      description: 'Chemical waste from laboratory operations',
-      industryType: 'Research',
+      category: 'Distillation Residues',
+      description: 'Waste of halogenated or unhalogenated non-aqueous distillation residues arising from organic solvents recovery process',
+      industryType: 'Chemical',
       status: 'New',
       color: 'purple'
     },
     {
       code: 'SW327',
-      category: 'Photographic Waste',
-      description: 'Photographic chemicals and silver-containing waste',
-      industryType: 'Photography',
+      category: 'Thermal Fluids Waste',
+      description: 'Waste of thermal fluids (heat transfer) such as ethylene glycol',
+      industryType: 'Industrial',
       status: 'New',
-      color: 'purple'
+      color: 'orange'
     },
     {
       code: 'SW409',
-      category: 'Contaminated Packaging',
-      description: 'Packaging materials contaminated with hazardous substances (IBCs, etc)',
+      category: 'Contaminated Containers',
+      description: 'Disposed containers, bags or equipment contaminated with chemicals, pesticides, mineral oil or scheduled wastes',
       industryType: 'General',
       status: 'Active',
       color: 'gray'
     },
     {
       code: 'SW410',
-      category: 'Cleaning Solvents',
-      description: 'Used industrial cleaning solvents and degreasers',
-      industryType: 'Industrial',
+      category: 'Contaminated Materials',
+      description: 'Rags, plastics, papers or filters contaminated with scheduled wastes',
+      industryType: 'General',
       status: 'New',
-      color: 'orange'
+      color: 'gray'
     },
     {
       code: 'SW422',
-      category: 'Paint Waste',
-      description: 'Paint sludges, thinners, and coating waste materials',
-      industryType: 'Manufacturing',
+      category: 'Mixed Waste',
+      description: 'A mixture of scheduled and non-scheduled wastes',
+      industryType: 'General',
       status: 'New',
-      color: 'purple'
+      color: 'gray'
     }
   ]
 
@@ -384,6 +384,7 @@ export default function ScheduledWasteManagementPage() {
                         waste.color === 'red' ? 'bg-red-100 text-red-800' :
                         waste.color === 'purple' ? 'bg-purple-100 text-purple-800' :
                         waste.color === 'gray' ? 'bg-gray-100 text-gray-800' :
+                        waste.color === 'teal' ? 'bg-teal-100 text-teal-800' :
                         'bg-gray-100 text-gray-800'
                       }`}>
                         {waste.industryType}
@@ -411,7 +412,7 @@ export default function ScheduledWasteManagementPage() {
               <div className="text-white/80">Total Categories</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg shadow-sm text-center border border-white/20">
-              <div className="text-3xl font-bold text-white mb-2">9</div>
+              <div className="text-3xl font-bold text-white mb-2">8</div>
               <div className="text-white/80">Industry Types</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg shadow-sm text-center border border-white/20">
@@ -450,7 +451,7 @@ export default function ScheduledWasteManagementPage() {
                   {/* Highlight Box */}
                   <div className="bg-gradient-to-r from-accent/10 to-accent/5 border-l-4 border-accent p-4 rounded-r-lg mb-6">
                     <p className="text-primary font-semibold text-sm leading-relaxed">
-                      <span className="text-accent font-bold">Key Advantage:</span> {service.highlight}
+                      <span className="text-accent font-bold">Key Advantage :</span> {service.highlight}
                     </p>
                   </div>
                   
@@ -487,13 +488,24 @@ export default function ScheduledWasteManagementPage() {
       </SectionWrapper>
 
       {/* Benefits */}
-      <SectionWrapper className="bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionWrapper className="relative">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/images/nasdeem.jpg"
+            alt="Background"
+            fill
+            className="object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
               Why Choose Our Waste Management Services
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
               We combine regulatory expertise with operational excellence to deliver superior waste management solutions
             </p>
           </div>

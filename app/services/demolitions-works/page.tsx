@@ -3,319 +3,233 @@
 import HeroSection from '@/components/HeroSection'
 import SectionWrapper from '@/components/SectionWrapper'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { 
   Award, 
   Truck, 
   Recycle, 
   Shield, 
-  CheckCircle, 
-  Phone, 
-  Mail, 
-  ArrowRight,
   Scissors,
   Leaf,
-  ChevronDown,
   Building,
-  Trash2,
-  HardHat,
   Wrench,
+  Users,
+  Car,
+  Factory,
 } from 'lucide-react'
 
 export default function DemolitionsWorksPage() {
-  const [expandedService, setExpandedService] = useState<number | null>(null)
-  const [isVisible, setIsVisible] = useState(false)
 
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
-
-  const toggleService = (index: number) => {
-    setExpandedService(expandedService === index ? null : index)
-  }
-
-  const services = [
+  const serveItems = [
     {
-      name: 'Onsite Demolition',
-      description: 'Professional demolition services for buildings, structures, and industrial facilities with complete site clearance and waste management.',
-      image: '/assets/images/demolition.png',
-      icon: Building,
-      features: ['Heavy machinery operation', 'Safety compliance', 'Complete site clearance', 'Waste management']
+      title: 'General public',
+      description: 'Walk-in and scheduled pickups',
+      image: '/assets/images/general.jpg',
     },
     {
-      name: 'Metal Cutting',
-      description: 'Precision metal cutting services for steel structures, pipes, and industrial equipment with specialized cutting tools.',
+      title: 'Licensed metal dealers',
+      description: 'Compliant, documented transactions',
+      image: '/assets/images/metaldealers.jpg',
+    },
+    {
+      title: 'Auto wreckers',
+      description: 'Vehicle metals, batteries, components',
+      image: '/assets/images/autowreckers.jpg',
+    },
+    {
+      title: 'Demolition companies',
+      description: 'Project-based collections',
+      image: '/assets/images/demolitionwork.jpg',
+    },
+    {
+      title: 'Farmers',
+      description: 'Equipment, fencing, storage',
+      image: '/assets/images/farmers.jpg',
+    },
+    {
+      title: 'Manufacturers',
+      description: 'Industrial metal waste and offcuts',
       image: '/assets/images/process.png',
-      icon: Scissors,
-      features: ['Precision cutting', 'Specialized equipment', 'Safety protocols', 'Quality assurance']
     },
-    {
-      name: 'Scrap Collection',
-      description: 'Comprehensive scrap metal collection services from various sources including industrial, commercial, and residential properties.',
-      image: '/assets/images/team.jpg',
-      icon: Truck,
-      features: ['Scheduled pickups', 'Flexible timing', 'Large volume handling', 'Free estimates']
-    },
-    {
-      name: 'Waste Disposal',
-      description: 'Environmentally responsible disposal and recycling of demolition waste and scrap materials with proper documentation.',
-      image: '/assets/images/wholesale.png',
-      icon: Trash2,
-      features: ['Eco-friendly processing', 'Documentation provided', 'Licensed operations', 'Compliance assurance']
-    },
-    {
-      name: 'Site Preparation',
-      description: 'Complete site preparation services including clearing, leveling, and preparation for new construction or development.',
-      image: '/assets/images/clean1.png',
-      icon: HardHat,
-      features: ['Site clearing', 'Leveling services', 'Safety preparation', 'Construction ready']
-    }
   ]
 
-  const thingsWeDo = [
+  const handleItems = [
     {
-      title: 'Professional Demolition Services',
-      description: 'We provide comprehensive demolition services for buildings, structures, and industrial facilities. Our experienced team uses state-of-the-art equipment to ensure safe and efficient demolition while maintaining strict safety standards.',
-      image: '/assets/images/demolition.png',
-      features: ['Heavy machinery operation', 'Safety compliance', 'Complete site clearance', 'Waste management'],
-      highlight: '14+ Years Experience'
+      title: 'Onsite clearing',
+      description: 'Safe, efficient, documented',
+      image: '/assets/images/clean3.png',
     },
     {
-      title: 'Metal Cutting & Processing',
-      description: 'Our precision metal cutting services handle steel structures, pipes, and industrial equipment. We use specialized cutting tools and techniques to ensure clean, precise cuts while maintaining material integrity.',
-      image: '/assets/images/process.png',
-      features: ['Precision cutting', 'Specialized equipment', 'Safety protocols', 'Quality assurance'],
-      highlight: 'PDRM Licensed'
+      title: 'Metal structures',
+      description: 'Fencing, carports, cages',
+      image: '/assets/images/metal.jpg',
     },
     {
-      title: 'Scrap Metal Collection',
-      description: 'We offer comprehensive scrap metal collection services from various sources. Our flexible scheduling and professional handling ensure convenient and reliable collection of all types of scrap materials.',
-      image: '/assets/images/team.jpg',
-      features: ['Scheduled pickups', 'Flexible timing', 'Large volume handling', 'Free estimates'],
-      highlight: '24/7 Service'
+      title: 'Offcuts & shavings',
+      description: 'All grades and volumes',
+      image: '/assets/images/clean2.png',
     },
     {
-      title: 'Environmental Disposal',
-      description: 'Our environmentally responsible disposal and recycling services ensure that all demolition waste and scrap materials are processed according to environmental regulations and best practices.',
-      image: '/assets/images/wholesale.png',
-      features: ['Eco-friendly processing', 'Documentation provided', 'Licensed operations', 'Compliance assurance'],
-      highlight: '100% Compliant'
+      title: 'Copper materials',
+      description: 'Cables, pipes, components',
+      image: '/assets/images/copper.jpg',
     },
     {
-      title: 'Site Preparation & Clearing',
-      description: 'Complete site preparation services including clearing, leveling, and preparation for new construction. We ensure your site is ready for the next phase of development.',
-      image: '/assets/images/clean1.png',
-      features: ['Site clearing', 'Leveling services', 'Safety preparation', 'Construction ready'],
-      highlight: 'Complete Service'
-    }
-  ]
-
-  const benefits = [
-    {
-      title: 'Licensed & Certified',
-      description: 'Fully PDRM licensed with 14+ years of experience in demolition and metal recycling',
-      image: '/assets/images/cidb.png',
-      icon: Award,
-      color: 'border-yellow-500'
+      title: 'Professional disposal',
+      description: 'Licensed, traceable, compliant',
+      image: '/assets/images/dispose.jpg',
     },
     {
-      title: 'Safety First',
-      description: 'Strict adherence to safety protocols and environmental regulations in all operations',
-      image: '/assets/images/doe.svg',
-      icon: Shield,
-      color: 'border-green-500'
+      title: 'Collection & logistics',
+      description: 'Scheduled pickups, large volumes',
+      image: '/assets/images/loading.png',
     },
-    {
-      title: 'Environmental Care',
-      description: 'Committed to responsible recycling and environmental protection in all our services',
-      image: '/assets/images/environment.jpg',
-      icon: Leaf,
-      color: 'border-blue-500'
-    },
-    {
-      title: 'Professional Equipment',
-      description: 'State-of-the-art machinery and tools for efficient and safe demolition operations',
-      image: '/assets/images/lab.png',
-      icon: Wrench,
-      color: 'border-red-500'
-    }
   ]
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <HeroSection
-        title="Demolition Works & Metal Recycling"
+        title="Demolition Works and Commodity Trading"
         subtitle="Professional demolition services and scrap metal collection since 2010"
-        backgroundImage="/assets/images/demolition.png"
+        backgroundImage="/assets/images/demolition1.jpg"
         buttonText="Get Instant Quote"
         buttonLink="/contact"
       />
 
-      {/* Service Overview Section */}
-      <SectionWrapper className="bg-white">
+      {/* Service Overview - Licensing & Positioning */}
+      <SectionWrapper>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
-              Professional Demolition & Metal Services
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              With over 14 years of experience, we provide comprehensive demolition services, metal cutting, and scrap collection. 
-              Our PDRM-licensed operations ensure safety, compliance, and environmental responsibility in every project.
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Licensed & Experienced Demolition Experts</h2>
+              <p className="text-lg text-muted-foreground mb-6 text-justify">
+                We offer professional demolition works and scrap metal collection for projects of all sizes, serving clients across Malaysia since 2010. Fully licensed and authorized by Royal Malaysian Police (PDRM), we assure compliant, secure, and efficient operations.
               </p>
-            </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Building className="w-8 h-8 text-white" />
+              <div className="flex items-center gap-6 mb-6">
+                <span className="inline-flex items-center gap-2 bg-white/80 border-2 border-primary/20 shadow px-3 py-1 rounded-full">
+                  <Image src="/assets/images/pdrm.svg" alt="PDRM Licensed" width={32} height={32} className="object-contain" />
+                  <span className="font-bold text-primary">PDRM Licensed</span>
+                </span>
+                <span className="inline-flex items-center gap-2 bg-white/80 border-2 border-yellow-200 px-3 py-1 rounded-full font-bold text-yellow-700 shadow">
+                  <Award className="w-5 h-5" />
+                  14+ years industry experience
+                </span>
               </div>
-              <h3 className="text-xl font-bold text-black mb-2">Demolition Services</h3>
-              <p className="text-gray-600">Professional demolition of buildings, structures, and industrial facilities</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Scissors className="w-8 h-8 text-white" />
-          </div>
-              <h3 className="text-xl font-bold text-black mb-2">Metal Cutting</h3>
-              <p className="text-gray-600">Precision cutting services for steel structures and industrial equipment</p>
-            </motion.div>
-
-              <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Recycle className="w-8 h-8 text-white" />
-          </div>
-              <h3 className="text-xl font-bold text-black mb-2">Scrap Collection</h3>
-              <p className="text-gray-600">Comprehensive collection and recycling of all types of scrap metal</p>
-        </motion.div>
+              <p className="text-gray-700 max-w-xl">Our seasoned team delivers safe, well-documented project work and recycling with full regulatory compliance and transparent audit trails—trusted by demolition specialists, government agencies and industrial clients throughout Malaysia.
+              </p>
+            </div>
+            <div className="relative">
+              <Image
+                src="/assets/images/demolition1.jpg"
+                alt="Demolition Works"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg"
+              />
+            </div>
           </div>
         </div>
       </SectionWrapper>
 
-      {/* Services Accordion Section */}
-      <SectionWrapper id="services" className="relative">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/assets/images/demolition.png"
-            alt="Background"
-            fill
-            className="object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-black/60"></div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-              Our Demolition Services
-            </h2>
-            <p className="text-lg text-white/90 max-w-3xl mx-auto">
-              We specialize in comprehensive demolition and metal recycling services, delivering safe and efficient solutions
-            </p>
-          </div>
-          
-          {/* Services Accordion - Horizontal */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-            {services.map((service, index) => (
+      {/* Licensed & Experienced + Company Intro */}
+      <SectionWrapper className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-                key={service.name}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-                className="self-start bg-white/10 backdrop-blur-md rounded-lg border border-white/20 shadow-lg overflow-hidden"
-              >
-                {/* Service Header - Clickable */}
-                <button
-                  onClick={() => toggleService(index)}
-                  className="w-full p-4 text-left hover:bg-white/5 transition-colors duration-300"
-                >
-                  <div className="flex flex-col items-center space-y-3">
-                    {/* Service Image */}
-                    <div className="w-16 h-16 rounded-lg overflow-hidden">
-                    <Image
-                        src={service.image}
-                        alt={service.name}
-                        width={64}
-                        height={64}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    
-                    {/* Service Info */}
-                <div className="text-center">
-                      <h3 className="text-lg font-bold text-white mb-1">
-                        {service.name}
-                      </h3>
-        </div>
-                    
-                    {/* Chevron Icon */}
-                <motion.div
-                      animate={{ rotate: expandedService === index ? 180 : 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                    >
-                      <ChevronDown className="w-5 h-5 text-white" />
-                </motion.div>
-                  </div>
-                </button>
+            className="mb-12 text-center"
+          >
+            <span className="inline-block text-xs tracking-widest uppercase text-gray-500 mb-2">Nasdeem Ventures Sdn Bhd • Operating since 2010</span>
+            <h2 className="text-3xl lg:text-4xl font-bold text-black">
+              <span className="text-primary">Licensed & Experienced</span> Scrap Metal Specialists
+            </h2>
+            <p className="text-base lg:text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
+              Comprehensive scrap metal and copper solutions. Licensed and authorized by Royal Malaysian Police (PDRM).
+            </p>
+          </motion.div>
 
-                {/* Service Content - Animated Dropdown */}
-                <AnimatePresence>
-                  {expandedService === index && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.4, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-4 pb-4 border-t border-white/20">
-                        <div className="pt-3">
-                          <p className="text-white/90 text-sm leading-relaxed mb-3">
-                            {service.description}
-                          </p>
-                          <ul className="space-y-1">
-                            {service.features.map((feature, idx) => (
-                              <li key={idx} className="flex items-center text-white/80 text-xs">
-                                <CheckCircle className="w-3 h-3 text-green-400 mr-2 flex-shrink-0" />
-                                {feature}
-                              </li>
-                            ))}
-                          </ul>
+          {/* PDRM Badge */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-14">
+            <div className="flex items-center gap-3">
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12">
+                <Image src="/assets/images/pdrm.svg" alt="PDRM" fill className="object-contain" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-black">PDRM Licensed & Authorized</p>
+                <p className="text-xs text-gray-600">Royal Malaysian Police credential for compliant operations</p>
+              </div>
+            </div>
+            <div className="hidden sm:block h-8 w-px bg-gray-200" />
+            <div className="flex items-center gap-2 text-green-700">
+              <Award className="w-5 h-5" />
+              <span className="text-sm">14+ years industry experience</span>
             </div>
           </div>
-          </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
+
+          {/* Two-column: Who We Serve / What We Handle */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Who We Serve */}
+            <div className="rounded-xl border border-gray-100 shadow-sm p-6">
+              <h3 className="text-xl font-bold text-black mb-2">Who We Serve</h3>
+              <p className="text-sm text-gray-600 mb-6">We purchase scrap and copper materials from:</p>
+              <div className="flex flex-col gap-4">
+                {serveItems.map((item) => (
+                  <motion.div
+                    key={item.title}
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 hover:shadow-sm bg-white"
+                  >
+                    <span className="relative w-40 h-40 shrink-0 rounded-xl overflow-hidden ring-2 ring-primary/20">
+                      <Image src={item.image} alt={item.title} fill className="object-cover" />
+                    </span>
+                    <div className="flex-1">
+                      <p className="text-lg font-semibold text-black">{item.title}</p>
+                      <p className="text-sm text-gray-600">{item.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* What We Handle */}
+            <div className="rounded-xl border border-gray-100 shadow-sm p-6">
+              <h3 className="text-xl font-bold text-black mb-2">What We Handle</h3>
+              <p className="text-sm text-gray-600 mb-6">Onsite cutting, clearing, collection and compliant disposal:</p>
+              <div className="flex flex-col gap-4">
+                {handleItems.map((item) => (
+                  <motion.div
+                    key={item.title}
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 hover:shadow-sm bg-white"
+                  >
+                    <span className="relative w-40 h-40 shrink-0 rounded-xl overflow-hidden ring-2 ring-accent/20">
+                      <Image src={item.image} alt={item.title} fill className="object-cover" />
+                    </span>
+                    <div className="flex-1">
+                      <p className="text-lg font-semibold text-black">{item.title}</p>
+                      <p className="text-sm text-gray-600">{item.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Environmental Responsibility */}
+          <div className="mt-10 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 border border-green-100 p-6 flex flex-col md:flex-row items-start md:items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center">
+              <Leaf className="w-5 h-5 text-white" />
+            </div>
+            <div className="flex-1">
+              <p className="text-sm md:text-base text-green-900">
+                We practice compliant, environmentally friendly recycling across all operations — from onsite cutting and clearing to professional metal disposal — minimizing landfill and ensuring full documentation for audit trails.
+              </p>
+            </div>
           </div>
         </div>
       </SectionWrapper>
