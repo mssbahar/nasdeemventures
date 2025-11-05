@@ -91,7 +91,7 @@ export default function PetroleumProductsPage() {
       <HeroSection
         title="Petroleum Products"
         subtitle="Licensed Wholesale Supplier - CSA & PDA Certified"
-        backgroundImage="/assets/images/tank.jpg"
+        backgroundImage="/assets/images/cleantank.jpg"
         showButtons={true}
         buttonText="Request Quote"
         buttonLink="/contact"
@@ -127,7 +127,7 @@ export default function PetroleumProductsPage() {
                   </div>
             <div className="relative">
               <Image
-                src="/assets/images/tank.jpg"
+                src="/assets/images/wholesale.png"
                 alt="Petroleum Supply"
                 width={600}
                 height={400}
@@ -308,7 +308,7 @@ export default function PetroleumProductsPage() {
               Our Fleet & Delivery Capabilities
             </h2>
             <p className="text-lg text-white/90 max-w-3xl mx-auto mb-8">
-              For dependable, high-volume petroleum supply backed by experience and reliability, choose Nasdeem Ventures as your trusted fuel partner
+              For dependable, high - volume petroleum supply backed by experience and reliability, choose Nasdeem Ventures as your trusted fuel partner
             </p>
           </motion.div>
 
@@ -478,7 +478,7 @@ export default function PetroleumProductsPage() {
                 href="tel:604-5010800"
               className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary hover:text-yellow-500 transition-colors"
               >
-                Call: 604-5010800
+                Call : 604-5010800
               </a>
             </div>
         </div>

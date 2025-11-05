@@ -38,28 +38,28 @@ export default function OurStoryPage() {
     {
       year: '2006',
       title: 'Company Founded',
-      description: 'Began with the purchase of land and the construction of a factory, followed by investments in machinery, treatment facilities, and office equipment. The workforce expanded to 5–10 staff, forming the foundation of Nasdeem Ventures\' operations.',
+      description: 'Began with the purchase of land and the construction of a factory, followed by investments in machinery, treatment facilities, and office equipment. The workforce expanded to 5 - 10 staff, forming the foundation of Nasdeem Ventures\' operations.',
       type: 'image',
       image: '/assets/images/founded.png'
     },
     {
       year: '2009',
       title: 'DOE Certification',
-      description: 'Obtained DOE licenses (SW305, SW306, SW307) with a 200MT quota, expanded workforce to 10–20 staff and began serving the manufacturing industry.',
+      description: 'Obtained DOE licenses (SW305, SW306, SW307) with a 200MT quota, expanded workforce to 10 - 20 staff and began serving the manufacturing industry.',
       type: 'image',
       image: '/assets/images/doelesen.png'
     },
     {
       year: '2016',
       title: 'Expanding Services',
-      description: 'Applied for DOE additional licenses on SW308, SW309, and SW409, receiving approval in 2021 with a quota of 1530MT. The workforce expanded to 20–30 staff, serving both manufacturing as well as marine and shipping industries.',
+      description: 'Applied for DOE additional licenses on SW308, SW309, and SW409, receiving approval in 2021 with a quota of 1530MT. The workforce expanded to 20 - 30 staff, serving both manufacturing as well as marine and shipping industries.',
       type: 'image',
       image: '/assets/images/service.jpg'
     },
     {
       year: '2022',
       title: 'Expanding Region',
-      description: 'Signed an MOU with Kop Mantap Berhad and began the process of adding 10 new SW codes. Opened a new branch in the Central Region with 30–40 staff, expanding services to all industries handling oil, especially the petrochemical sector.',
+      description: 'Signed an MOU with Kop Mantap Berhad and began the process of adding 10 new SW codes. Opened a new branch in the Central Region with 30 - 40 staff, expanding services to all industries handling oil, especially the petrochemical sector.',
       type: 'image',
       image: '/assets/images/map.png'
     },

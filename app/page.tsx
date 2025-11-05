@@ -37,13 +37,13 @@ export default function Home() {
     {
       title: 'Petroleum Products',
       description: 'Supply and distribution of high-quality petroleum products for various industrial applications.',
-      image: '/assets/images/wholesale.png',
+      image: '/assets/images/cleantank.jpg',
       link: '/services/petroleum-products'
     },
     {
       title: 'Demolitions Works',
-      description: 'Professional demolition services with safety-first approach and environmental compliance.',
-      image: '/assets/images/demolition.png',
+      description: 'Professional demolition services with safety - first approach and environmental compliance.',
+      image: '/assets/images/demolition.jpg',
       link: '/services/demolitions-works'
     },
     {
@@ -74,7 +74,7 @@ export default function Home() {
     {
       icon: <Clock className="w-8 h-8" />,
       title: '24/7 Support',
-      description: 'Round-the-clock customer support and emergency services'
+      description: 'Round - the - clock customer support and emergency services'
     },
     {
       icon: <Shield className="w-8 h-8" />,

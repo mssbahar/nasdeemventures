@@ -577,7 +577,7 @@ export default function ScheduledWasteManagementPage() {
               href="tel:604-5010800"
               className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary hover:text-yellow-500 transition-colors"
             >
-              Call: 604-5010800
+              Call : 604-5010800
             </a>
           </div>
         </div>

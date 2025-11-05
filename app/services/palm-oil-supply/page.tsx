@@ -26,7 +26,7 @@ export default function PalmOilSupplyPage() {
               <span className="relative w-12 h-12">
                 <Image src="/assets/images/mpob.svg" alt="MPOB" fill className="object-contain" />
               </span>
-              <span className="text-base font-bold text-primary uppercase tracking-wide">MPOB-licensed Exporter</span>
+              <span className="text-base font-bold text-primary uppercase tracking-wide">MPOB - licensed Exporter</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-primary mb-3">Malaysia’s Trusted Palm Oil Partner</h2>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start mb-4">
@@ -38,7 +38,7 @@ export default function PalmOilSupplyPage() {
             <p className="text-muted-foreground mt-4 max-w-xl">Fully MPOB authorized, audited yearly, and trusted by leading refineries and buyers. We bring supply security, traceability, and rigorous standards to every batch.</p>
           </div>
           <div className="flex-1 flex justify-center">
-            <Image src="/assets/images/palmoil.jpg" alt="Palm Oil" width={400} height={400} className="rounded-2xl shadow-xl object-cover aspect-square" />
+            <Image src="/assets/images/palmoil2.jpg" alt="Palm Oil" width={600} height={400} className="rounded-lg shadow-lg object-cover" />
           </div>
         </div>
       </SectionWrapper>
@@ -50,7 +50,7 @@ export default function PalmOilSupplyPage() {
           <div className="absolute inset-0 bg-black/70" />
         </div>
         <div className="max-w-5xl mx-auto text-center relative z-10">
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-10 drop-shadow">From Plantation to Port—Our Palm Oil Journey</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-10 drop-shadow">From Plantation to Port - Our Palm Oil Journey</h3>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative">
             <div className="flex flex-col items-center flex-1">
               <Leaf className="w-12 h-12 text-white mb-2 animate-bounce drop-shadow" />
@@ -60,7 +60,7 @@ export default function PalmOilSupplyPage() {
             <div className="flex flex-col items-center flex-1">
               <Globe className="w-12 h-12 text-white mb-2 animate-bounce drop-shadow" />
               <span className="font-black text-white drop-shadow">Global Quality</span>
-              <span className="text-xs text-white/90">Food-grade & traceable</span>
+              <span className="text-xs text-white/90">Food - grade & traceable</span>
             </div>
             <div className="flex flex-col items-center flex-1">
               <Truck className="w-12 h-12 text-white mb-2 animate-bounce drop-shadow" />
@@ -70,7 +70,7 @@ export default function PalmOilSupplyPage() {
             <div className="flex flex-col items-center flex-1">
               <Shield className="w-12 h-12 text-white mb-2 animate-bounce drop-shadow" />
               <span className="font-black text-white drop-shadow">Full Compliance</span>
-              <span className="text-xs text-white/90">Audited, export-ready</span>
+              <span className="text-xs text-white/90">Audited, export - ready</span>
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function PalmOilSupplyPage() {
               </div>
               <div className="p-6">
                 <h4 className="text-xl font-bold text-accent">Processed Palm Oil (PPO)</h4>
-                <p className="text-sm text-muted-foreground my-2">Imagine premium, refined palm oil for your food business. Fresh, safe, and always quality-tested.</p>
+                <p className="text-sm text-muted-foreground my-2">Imagine premium, refined palm oil for your food business. Fresh, safe, and always quality - tested.</p>
               </div>
             </div>
             {/* SPO */}
@@ -114,7 +114,7 @@ export default function PalmOilSupplyPage() {
               </div>
               <div className="p-6">
                 <h4 className="text-xl font-bold text-primary">Sludge Palm Oil (SPO)</h4>
-                <p className="text-sm text-muted-foreground my-2">Go green with our SPO, ideal for biodiesel, renewables, and eco-industry applications.</p>
+                <p className="text-sm text-muted-foreground my-2">Go green with our SPO, ideal for biodiesel, renewables, and eco - industry applications.</p>
               </div>
             </div>
           </div>
@@ -128,8 +128,8 @@ export default function PalmOilSupplyPage() {
           <div className="absolute inset-0 bg-black/70" />
         </div>
         <div className="max-w-4xl mx-auto flex flex-col items-center gap-4 text-center relative z-10">
-          <h3 className="text-2xl md:text-3xl font-extrabold text-white drop-shadow mb-2">Supplying the World — Responsibly</h3>
-          <p className="text-lg text-white drop-shadow leading-snug">Our mission: An honest, sustainable palm oil supply chain—supporting both people and the planet for generations to come.</p>
+          <h3 className="text-2xl md:text-3xl font-extrabold text-white drop-shadow mb-2">Supplying the World - Responsibly</h3>
+          <p className="text-lg text-white drop-shadow leading-snug">Our mission : An honest, sustainable palm oil supply chain - supporting both people and the planet for generations to come.</p>
           <div className="flex flex-row gap-6 mt-4">
             <Leaf className="w-9 h-9 text-white animate-pulse drop-shadow" />
             <Shield className="w-9 h-9 text-white animate-shake drop-shadow" />
@@ -157,7 +157,7 @@ export default function PalmOilSupplyPage() {
               href="tel:604-5010800"
               className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary hover:text-yellow-500 transition-colors"
             >
-              Call: 604-5010800
+              Call : 604-5010800
             </a>
           </div>
         </div>

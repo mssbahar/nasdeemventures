@@ -65,9 +65,9 @@ export default function ContactPage() {
       'accounts@nasdeemventures.com'
     ],
     businessHours: {
-      weekdays: 'Mon–Fri: 8:30 AM–5:30 PM',
-      saturday: 'Sat: 8:00 AM–1:00 PM',
-      sunday: 'Sun: Closed'
+      weekdays: 'Mon - Fri : 8 : 30 AM - 5 : 30 PM',
+      saturday: 'Sat : 8 : 00 AM - 1 : 00 PM',
+      sunday: 'Sun : Closed'
     }
   }
 

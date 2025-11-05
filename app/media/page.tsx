@@ -8,7 +8,7 @@ import { ImageIcon, ExternalLink, X, ChevronLeft, ChevronRight, Linkedin, Facebo
 
 export default function MediaPage() {
   const [activeCategory, setActiveCategory] = useState('All')
-  const [selectedGallery, setSelectedGallery] = useState<{ images: string[], title: string } | null>(null)
+  const [selectedGallery, setSelectedGallery] = useState<{ images: string[], title: string, description: string } | null>(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isAutoScroll, setIsAutoScroll] = useState(false)
   const autoScrollRef = useRef<NodeJS.Timeout | null>(null)
@@ -77,6 +77,25 @@ export default function MediaPage() {
         '/assets/images/slim7.jpeg',
         '/assets/images/slim8.jpeg',
         '/assets/images/slim9.jpeg'
+      ],
+      thumbnailImage: undefined,
+      externalLink: undefined,
+      linkType: undefined
+    },
+    {
+      id: 4,
+      title: 'Company Visit to Krabi, Thailand',
+      description: 'An exciting company visit to Krabi, Thailand, fostering team bonding and cultural exchange while exploring the beautiful landscapes and experiencing Thai hospitality.',
+      date: '2024-11-15',
+      category: 'social' as const,
+      coverImage: '/assets/images/thai.jpeg',
+      images: [
+        '/assets/images/thai.jpeg',
+        '/assets/images/thai2.jpeg',
+        '/assets/images/thai3.jpeg',
+        '/assets/images/thai4.jpeg',
+        '/assets/images/thai6.jpeg',
+        '/assets/images/thai7.jpeg'
       ],
       thumbnailImage: undefined,
       externalLink: undefined,
@@ -154,7 +173,8 @@ export default function MediaPage() {
       coverImage: '/assets/images/lab.png',
       images: [
         '/assets/images/lab.png',
-        '/assets/images/lab2.png'
+        '/assets/images/lab2.png',
+        '/assets/images/lab3.jpeg'
       ],
       thumbnailImage: undefined,
       externalLink: undefined,
@@ -249,18 +269,6 @@ export default function MediaPage() {
       externalLink: 'https://www.linkedin.com/feed/update/urn:li:activity:7309054712908066816',
       linkType: 'linkedin' as const
     },
-    {
-      id: 16,
-      title: 'Majlis Penyerahan Lesen Premis yang Ditetapkan (Buangan Terjadual)',
-      description: 'License presentation ceremony for designated premises for scheduled waste, marking an important achievement in Nasdeem Ventures\' scheduled waste management operations.',
-      date: '2025-01-15',
-      category: 'newsletter' as const,
-      coverImage: undefined,
-      images: [],
-      thumbnailImage: '/assets/images/license.jpg',
-      externalLink: '/newsletter/license-presentation',
-      linkType: 'internal' as const
-    }
   ]
 
   const filteredItems = activeCategory === 'All' 
@@ -272,8 +280,8 @@ export default function MediaPage() {
       return true
     })
 
-  const openGallery = (images: string[], title: string) => {
-    setSelectedGallery({ images, title })
+  const openGallery = (images: string[], title: string, description: string) => {
+    setSelectedGallery({ images, title, description })
     setCurrentImageIndex(0)
   }
 
@@ -383,7 +391,7 @@ export default function MediaPage() {
         window.open(item.externalLink, '_blank')
       }
     } else if (item.images && item.images.length > 0) {
-      openGallery(item.images, item.title)
+      openGallery(item.images, item.title, item.description)
     }
   }
 
@@ -498,7 +506,7 @@ export default function MediaPage() {
                         ) : (
                           <ExternalLink className="w-4 h-4" />
                         )}
-                        <span className="capitalize">{item.linkType === 'internal' ? 'Internal' : item.linkType}</span>
+                        <span className="capitalize">{item.linkType}</span>
                       </span>
                     </div>
                   )}
@@ -516,11 +524,11 @@ export default function MediaPage() {
           <div className="relative w-full h-full max-w-6xl max-h-[90vh] flex flex-col">
             {/* Header */}
             <div className="flex items-center justify-between p-4 bg-gradient-to-b from-black/80 to-transparent">
-              <div className="flex items-center space-x-4">
-                <div className="w-2 h-8 bg-gradient-to-b from-[#FBBF24] to-[#F59E0B] rounded-full"></div>
-                <div>
+              <div className="flex items-center space-x-4 flex-1 mr-4">
+                <div className="w-2 h-8 bg-gradient-to-b from-[#FBBF24] to-[#F59E0B] rounded-full shrink-0"></div>
+                <div className="flex-1">
                   <h3 className="text-xl font-bold text-white">{selectedGallery.title}</h3>
-                  <p className="text-white/70 text-sm">Gallery View</p>
+                  <p className="text-white/70 text-sm line-clamp-2">{selectedGallery.description}</p>
                 </div>
               </div>
               

@@ -39,13 +39,13 @@ export default function ServicesPage() {
     {
       title: 'Petroleum Products',
       description: 'Supply and distribution of high-quality petroleum products for various industrial applications.',
-      image: '/assets/images/wholesale.png',
+      image: '/assets/images/cleantank.jpg',
       link: '/services/petroleum-products'
     },
     {
       title: 'Demolitions Works',
-      description: 'Professional demolition services with safety-first approach and environmental compliance.',
-      image: '/assets/images/demolition.png',
+      description: 'Professional demolition services with safety - first approach and environmental compliance.',
+      image: '/assets/images/demolition.jpg',
       link: '/services/demolitions-works'
     },
     {
@@ -76,7 +76,7 @@ export default function ServicesPage() {
     {
       icon: <Clock className="w-8 h-8" />,
       title: '24/7 Support',
-      description: 'Round-the-clock customer support and emergency services'
+      description: 'Round - the - clock customer support and emergency services'
     },
     {
       icon: <Shield className="w-8 h-8" />,
@@ -267,7 +267,7 @@ export default function ServicesPage() {
               href="tel:604-5010800"
               className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary hover:text-yellow-500 transition-colors"
             >
-              Call Now: 604-5010800
+              Call Now : 604-5010800
             </Link>
           </div>
         </div>

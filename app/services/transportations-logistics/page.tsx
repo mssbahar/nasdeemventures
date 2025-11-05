@@ -87,7 +87,7 @@ export default function TransportationsLogisticsPage() {
             </div>
             <div className="relative">
               <Image
-                src="/assets/images/transportation.png"
+                src="/assets/images/transport.jpg"
                 alt="Transportation & Logistics"
                 width={600}
                 height={400}
