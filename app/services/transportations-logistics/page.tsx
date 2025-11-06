@@ -87,7 +87,7 @@ export default function TransportationsLogisticsPage() {
             </div>
             <div className="relative">
               <Image
-                src="/assets/images/transport.jpg"
+                src="/assets/images/lorrydrone.jpg"
                 alt="Transportation & Logistics"
                 width={600}
                 height={400}
@@ -114,11 +114,11 @@ export default function TransportationsLogisticsPage() {
           <div className="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md p-4 flex items-center justify-center gap-3 shadow-sm">
               <MapPin className="w-5 h-5 text-white" />
-              <span className="text-sm text-white/90">Coverage: Peninsular Malaysia</span>
+              <span className="text-sm text-white/90">Coverage : Peninsular Malaysia</span>
             </div>
             <div className="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md p-4 flex items-center justify-center gap-3 shadow-sm">
               <Clock className="w-5 h-5 text-white" />
-              <span className="text-sm text-white/90">Availability: 24/7 Dispatch</span>
+              <span className="text-sm text-white/90">Availability : 24/7 Dispatch</span>
             </div>
             <div className="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md p-4 flex items-center justify-center gap-3 shadow-sm">
               <Shield className="w-5 h-5 text-white" />

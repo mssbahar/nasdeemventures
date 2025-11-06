@@ -63,7 +63,7 @@ export default function DemolitionsWorksPage() {
       <HeroSection
         title="Demolition Works and Commodity Trading"
         subtitle="Professional demolition services and scrap metal collection since 2010"
-        backgroundImage="/assets/images/demolition.jpg"
+        backgroundImage="/assets/images/demolish.jpeg"
         buttonText="Get Instant Quote"
         buttonLink="/contact"
       />

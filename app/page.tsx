@@ -43,7 +43,7 @@ export default function Home() {
     {
       title: 'Demolitions Works',
       description: 'Professional demolition services with safety - first approach and environmental compliance.',
-      image: '/assets/images/demolition.jpg',
+      image: '/assets/images/demolish.jpeg',
       link: '/services/demolitions-works'
     },
     {

@@ -127,7 +127,7 @@ export default function PetroleumProductsPage() {
                   </div>
             <div className="relative">
               <Image
-                src="/assets/images/wholesale.png"
+                src="/assets/images/tank.png"
                 alt="Petroleum Supply"
                 width={600}
                 height={400}

@@ -470,7 +470,7 @@ export default function ScheduledWasteManagementPage() {
                       src={
                         index === 0 ? '/assets/images/lab.png' :
                         index === 1 ? '/assets/images/document.jpg' :
-                        index === 2 ? '/assets/images/schedule-waste2.png' :
+                        index === 2 ? '/assets/images/lorry.jpeg' :
                         index === 3 ? '/assets/images/transportation.png' :
                         '/assets/images/disposal.jpg'
                       }

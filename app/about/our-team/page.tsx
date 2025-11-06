@@ -1,185 +1,357 @@
+'use client'
+
 import HeroSection from '@/components/HeroSection'
 import SectionWrapper from '@/components/SectionWrapper'
 import Image from 'next/image'
-import { Linkedin, Mail, Phone } from 'lucide-react'
+import { Linkedin, Mail, MapPin, Briefcase, Users, Target } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 export default function OurTeamPage() {
-  const teamMembers = [
+
+  // All team members organized by groups
+  const teamGroups = [
     {
-      name: 'Nur Farah Azlin',
-      position: 'Management Advisor',
-      location: 'Penang',
-      image: '/assets/images/farah1.jpg',
-      imageHover: '/assets/images/farah2.jpg',
-      bio: 'I provide strategic management guidance to optimize our operational processes and ensure regulatory compliance across all waste management services.',
-      email: 'farah@nasdeemventures.com',
-      linkedin: '#'
+      title: 'Management',
+      icon: <Briefcase className="w-6 h-6" />,
+      color: 'from-black to-gray-800',
+      bgColor: 'bg-black',
+      members: [
+        {
+          name: 'Ts. Nur Farah Azlin',
+          position: 'Management Advisor',
+          location: 'Penang',
+          image: '/assets/images/farah1.jpg',
+          bio: 'Strategic management guidance to optimize operational processes.',
+          email: 'farah@nasdeemventures.com',
+          linkedin: '#'
+        },
+        {
+          name: 'Nashrul Azwan',
+          position: 'Marketing Advisor',
+          location: 'Penang',
+          image: '/assets/images/nashrul.jpg',
+          bio: 'Developing strategic marketing initiatives for market leadership.',
+          email: 'nashrul@nasdeemventures.com',
+          linkedin: '#'
+        },
+        {
+          name: 'Haslida Abdul Ghani',
+          position: 'CEO',
+          location: 'Penang',
+          image: '/assets/images/ida.jpg',
+          bio: 'Leading strategic vision and driving organizational excellence.',
+          email: 'haslida@nasdeemventures.com',
+          linkedin: '#'
+        },
+        {
+          name: 'Dr. Shazlina Abd Hamid',
+          position: 'GM - Corporate Service',
+          location: 'Penang',
+          image: '/assets/images/shazlina.jpeg',
+          bio: 'Leading corporate services division with operational excellence.',
+          email: 'shazlina@nasdeemventures.com',
+          linkedin: '#'
+        },
+        {
+          name: 'Mohd Faritdzul Nassim',
+          position: 'GM - Strategic Marketing',
+          location: 'Penang',
+          image: '/assets/images/faritdzul.jpg',
+          bio: 'Overseeing strategic marketing operations and expansion.',
+          email: 'faritdzul@nasdeemventures.com',
+          linkedin: '#'
+        }
+      ]
     },
     {
-      name: 'Nashrul Azwan',
-      position: 'Marketing Advisor',
-      location: 'Penang',
-      image: '/assets/images/nashrul.jpg',
-      imageHover: '/assets/images/nashrul.jpg',
-      bio: 'I develop strategic marketing initiatives that position Nasdeem Ventures as the leading environmental services provider in Malaysia.',
-      email: 'nashrul@nasdeemventures.com',
-      linkedin: '#'
+      title: 'Head of Department',
+      icon: <Users className="w-6 h-6" />,
+      color: 'from-black to-gray-800',
+      bgColor: 'bg-black',
+      members: [
+        {
+          name: 'Syahirah Razi',
+          position: 'Licensing',
+          location: 'Penang',
+          image: '/assets/images/ira.jpg',
+          bio: 'Managing licensing portfolio and regulatory compliance.',
+          email: 'syahirah@nasdeemventures.com',
+          linkedin: '#'
+        },
+        {
+          name: 'Abdul Alim Abd Hamid',
+          position: 'Finance',
+          location: 'Penang',
+          image: '/assets/images/alim.jpg',
+          bio: 'Overseeing financial operations and strategic planning.',
+          email: 'alim@nasdeemventures.com',
+          linkedin: '#'
+        },
+        {
+          name: 'Kartini Mohd Noor',
+          position: 'HR',
+          location: 'Penang',
+          image: '/assets/images/kartini.jpeg',
+          bio: 'Managing human resources and workplace culture.',
+          email: 'kartini@nasdeemventures.com',
+          linkedin: '#'
+        },
+        {
+          name: 'Areena ',
+          position: 'Admin',
+          location: 'Penang',
+          image: '/assets/images/areena.jpg',
+          bio: 'Supporting administrative operations across all departments.',
+          email: 'areena@nasdeemventures.com',
+          linkedin: '#'
+        },
+        {
+          name: 'Rohana ',
+          position: 'Operations',
+          location: 'Penang',
+          image: '/assets/images/ana.jpg',
+          bio: 'Managing daily operations and service delivery.',
+          email: 'rohana@nasdeemventures.com',
+          linkedin: '#'
+        }
+      ]
     },
     {
-      name: 'Haslida Abdul Ghani',
-      position: 'CEO',
-      location: 'Penang',
-      image: '/assets/images/ida.jpg',
-      imageHover: '/assets/images/ida.jpg',
-      bio: 'I lead our strategic vision and drive organizational excellence across all operations, ensuring sustainable growth and environmental responsibility.',
-      email: 'haslida@nasdeemventures.com',
-      linkedin: '#'
+      title: 'Marketing Managers',
+      icon: <Target className="w-6 h-6" />,
+      color: 'from-black to-gray-800',
+      bgColor: 'bg-black',
+      members: [
+        {
+          name: 'Adib Zaquan',
+          position: 'Northern Region',
+          location: 'Northern Malaysia',
+          image: '/assets/images/adib.jpg',
+          bio: 'Leading marketing operations in Northern Malaysia.',
+          email: 'adib@nasdeemventures.com',
+          linkedin: '#'
+        },
+        {
+          name: 'Suhail Mazlan',
+          position: 'Central Region',
+          location: 'Central Malaysia',
+          image: '/assets/images/mm-central.jpg',
+          bio: 'Leading marketing operations in Central Malaysia.',
+          email: 'mm.central@nasdeemventures.com',
+          linkedin: '#'
+        },
+        {
+          name: 'Ungku Zainul',
+          position: 'Southern Region',
+          location: 'Southern Malaysia',
+          image: '/assets/images/mm-south.jpg',
+          bio: 'Leading marketing operations in Southern Malaysia.',
+          email: 'mm.south@nasdeemventures.com',
+          linkedin: '#'
+        }
+      ]
     },
     {
-      name: 'Mohd Faritdzul',
-      position: 'General Manager (Strategic Marketing)',
-      location: 'Penang',
-      image: '/assets/images/faritdzul.jpg',
-      imageHover: '/assets/images/faritdzul.jpg',
-      bio: 'I oversee our strategic marketing operations and develop comprehensive marketing strategies to expand our market presence and client base.',
-      email: 'faritdzul@nasdeemventures.com',
-      linkedin: '#'
-    },
-    {
-      name: 'Dr. Shazlina Abd Hamid',
-      position: 'General Manager (Corporate Service)',
-      location: 'Penang',
-      image: '/assets/images/shazlina.jpg',
-      imageHover: '/assets/images/shazlina.jpg',
-      bio: 'I lead our corporate services division, ensuring operational excellence and regulatory compliance across all our waste management operations.',
-      email: 'shazlina@nasdeemventures.com',
-      linkedin: '#'
-    },
-    {
-      name: 'Syahirah Razi',
-      position: 'Licensing Executive',
-      location: 'Penang',
-      image: '/assets/images/ira.jpg',
-      imageHover: '/assets/images/ira.jpg',
-      bio: 'I manage our licensing portfolio and ensure we maintain all necessary permits for sustainable waste management operations.',
-      email: 'syahirah@nasdeemventures.com',
-      linkedin: '#'
-    },
-    {
-      name: 'Abdul Alim',
-      position: 'Finance Executive',
-      location: 'Penang',
-      image: '/assets/images/alim.jpg',
-      imageHover: '/assets/images/alim.jpg',
-      bio: 'I oversee our financial operations and ensure sustainable growth through strategic financial planning and resource management.',
-      email: 'alim@nasdeemventures.com',
-      linkedin: '#'
-    },
-    {
-      name: 'Areena',
-      position: 'HR Executive',
-      location: 'Penang',
-      image: '/assets/images/areena.jpg',
-      imageHover: '/assets/images/areena.jpg',
-      bio: 'I manage our human resources operations, ensuring we attract and retain top talent while fostering a positive workplace culture.',
-      email: 'areena@nasdeemventures.com',
-      linkedin: '#'
+      title: 'Marketing Executives',
+      icon: <Target className="w-6 h-6" />,
+      color: 'from-black to-gray-800',
+      bgColor: 'bg-black',
+      members: [
+        {
+          name: 'Shafiq Asnawi',
+          position: 'Northern Region',
+          location: 'Northern Malaysia',
+          image: '/assets/images/shafiq.jpeg',
+          bio: 'Executing marketing strategies in Northern region.',
+          email: 'shafiq@nasdeemventures.com',
+          linkedin: '#'
+        },
+        {
+          name: 'Farahana Zainal Abidin',
+          position: 'Central Region',
+          location: 'Central Malaysia',
+          image: '/assets/images/faa.jpeg',
+          bio: 'Executing marketing strategies in Central region.',
+          email: 'farahana@nasdeemventures.com',
+          linkedin: '#'
+        }
+      ]
     }
   ]
 
+  // Team card component
+  const TeamCard = ({ member, delay = 0 }: any) => {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay }}
+        viewport={{ once: true }}
+        whileHover={{ y: -8 }}
+        className="group h-full"
+      >
+        <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-transparent hover:border-[#FBBF24] h-full flex flex-col">
+          {/* Image */}
+          <div className="relative w-full h-72 overflow-hidden bg-gray-100">
+            <Image
+              src={member.image}
+              alt={member.name}
+              fill
+              className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          
+          {/* Content */}
+          <div className="p-5 flex-1 flex flex-col">
+            <h3 className="text-lg font-bold text-black mb-2 group-hover:text-[#FBBF24] transition-colors">
+              {member.name}
+            </h3>
+            <p className="text-sm font-semibold text-[#FBBF24] mb-3">
+              {member.position}
+            </p>
+            {member.location && (
+              <div className="flex items-center text-xs text-gray-600 mb-3">
+                <MapPin className="w-3.5 h-3.5 mr-1.5 flex-shrink-0" />
+                <span>{member.location}</span>
+              </div>
+            )}
+            <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-1">
+              {member.bio}
+            </p>
+            
+            {/* Contact Icons */}
+            <div className="flex items-center gap-3 mt-auto">
+              <a 
+                href={member.linkedin} 
+                className="flex items-center justify-center w-9 h-9 bg-[#FBBF24] rounded-full hover:bg-[#F59E0B] transition-all hover:scale-110"
+              >
+                <Linkedin className="w-4 h-4 text-white" />
+              </a>
+              <a 
+                href={`mailto:${member.email}`} 
+                className="flex items-center justify-center w-9 h-9 bg-black rounded-full hover:bg-gray-800 transition-all hover:scale-110"
+              >
+                <Mail className="w-4 h-4 text-white" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    )
+  }
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <HeroSection
         title="Our Team"
-        subtitle="Meet the experts behind our success"
+        subtitle="Meet the professionals driving our success"
         backgroundImage="/assets/images/team2.jpg"
         showButtons={false}
       />
 
-      {/* Team Introduction & Members Grid */}
-      <SectionWrapper className="bg-muted">
+      {/* Main Content - Centralized and Merged */}
+      <SectionWrapper className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
+          
+          {/* Introduction */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">
               Our Expert Team
             </h2>
-            <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Our team consists of highly qualified professionals with extensive experience 
               in environmental services, waste management, and industrial solutions. Each 
-              member brings unique expertise and a shared commitment to excellence and 
-              environmental responsibility.
+              member brings unique expertise and a shared commitment to excellence.
             </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={member.name} className="group">
-                <div className="relative mb-6">
-                  <div className="relative w-full h-80 rounded-lg overflow-hidden">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover transition-opacity duration-500 group-hover:opacity-0"
-                    />
-                    <Image
-                      src={member.imageHover}
-                      alt={`${member.name} - Hover`}
-                      fill
-                      className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100 absolute inset-0"
-                    />
+          </motion.div>
+
+          {/* All Team Groups - Merged in One Section */}
+          <div className="space-y-16">
+            {teamGroups.map((group, groupIndex) => (
+              <div key={`${group.title}-${groupIndex}`}>
+                {/* Group Header */}
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="flex justify-center mb-10"
+                >
+                  <div className={`inline-flex items-center gap-3 bg-gradient-to-r ${group.color} text-white px-8 py-4 rounded-full shadow-lg`}>
+                    {group.icon}
+                    <div className="text-left">
+                      <h2 className="text-2xl font-bold">{group.title}</h2>
+                      {group.subtitle && (
+                        <p className="text-sm text-white/90">{group.subtitle}</p>
+                      )}
+                    </div>
                   </div>
+                </motion.div>
+                
+                {/* Team Cards Grid */}
+                <div className={`grid gap-6 ${
+                  group.members.length === 5 
+                    ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'
+                    : group.members.length === 3
+                    ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center lg:place-items-stretch'
+                    : group.members.length === 2
+                    ? 'grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto'
+                    : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'
+                }`}>
+                  {group.members.map((member, index) => (
+                    <TeamCard key={member.email} member={member} delay={index * 0.1} />
+                  ))}
                 </div>
-                <div className="space-y-3">
-                  <h3 className="text-xl font-bold text-primary group-hover:text-[#FBBF24] transition-colors duration-300">
-                    {member.name}
-                  </h3>
-                  <p className="text-sm text-primary font-medium">
-                    {member.position}, {member.location}
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {member.bio}
-                  </p>
-                  <div className="pt-2">
-                    <a
-                      href={member.linkedin}
-                      className="inline-flex items-center text-sm text-[#FBBF24] hover:text-[#F59E0B] transition-colors duration-300"
-                    >
-                      <Linkedin className="w-4 h-4 mr-2" />
-                      LinkedIn
-                    </a>
-                  </div>
-                </div>
+
+                {/* Divider line between groups (except last) */}
+                {groupIndex < teamGroups.length - 1 && (
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="mt-16 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"
+                  />
+                )}
               </div>
             ))}
           </div>
+
+          
+
         </div>
       </SectionWrapper>
 
-      {/* Join Our Team CTA */}
-      <SectionWrapper>
+      {/* CTA Section */}
+      <SectionWrapper className="bg-muted">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
-            Join Our Team
+            Ready to Join Our Team?
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
             We're always looking for talented individuals who share our passion for 
-            environmental responsibility and excellence. Explore career opportunities 
-            with us and be part of Malaysia's leading waste management company.
+            environmental responsibility and excellence. Explore career opportunities with us.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/career"
-              className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:bg-secondary transition-colors hover:text-yellow-500"
+              className="bg-accent text-accent-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-secondary transition-colors hover:text-yellow-500"
             >
               View Open Positions
             </a>
             <a
-              href="/contact"
-              className="border-2 border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-yellow-500 transition-colors"
+              href="tel:604-5010800"
+              className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary hover:text-yellow-500 transition-colors"
             >
-              Contact HR
+              Call : 604-5010800
             </a>
           </div>
         </div>
@@ -187,4 +359,3 @@ export default function OurTeamPage() {
     </div>
   )
 }
-

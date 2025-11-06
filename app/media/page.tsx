@@ -32,7 +32,19 @@ export default function MediaPage() {
         '/assets/images/raya5.jpeg',
         '/assets/images/raya6.jpeg',
         '/assets/images/raya7.jpeg',
-        '/assets/images/raya8.jpeg'
+        '/assets/images/raya8.jpeg',
+        '/assets/images/puasa1.jpg',
+        '/assets/images/puasa2.jpg',
+        '/assets/images/puasa3.jpg',
+        '/assets/images/puasa4.jpg',
+        '/assets/images/puasa5.jpg',
+        '/assets/images/puasa6.jpg',
+        '/assets/images/puasa7.jpg',
+        '/assets/images/puasa8.jpg',
+        '/assets/images/puasa9.jpg',
+        '/assets/images/puasa10.jpg',
+        '/assets/images/puasa11.jpg',
+        '/assets/images/puasa12.jpg'
       ],
       thumbnailImage: undefined,
       externalLink: undefined,
@@ -96,6 +108,24 @@ export default function MediaPage() {
         '/assets/images/thai4.jpeg',
         '/assets/images/thai6.jpeg',
         '/assets/images/thai7.jpeg'
+      ],
+      thumbnailImage: undefined,
+      externalLink: undefined,
+      linkType: undefined
+    },
+    {
+      id: 16,
+      title: 'Company Trip to Hat Yai, Thailand',
+      description: 'An unforgettable company trip to Hat Yai, Thailand, strengthening team relationships and enjoying the vibrant culture, delicious cuisine, and memorable experiences together.',
+      date: '2025-01-20',
+      category: 'social' as const,
+      coverImage: '/assets/images/hatyai.jpeg',
+      images: [
+        '/assets/images/hatyai.jpeg',
+        '/assets/images/hatyai2.jpeg',
+        '/assets/images/hatyai3.jpeg',
+        '/assets/images/hatyai4.jpeg',
+        '/assets/images/hatyai5.jpeg'
       ],
       thumbnailImage: undefined,
       externalLink: undefined,
@@ -223,9 +253,21 @@ export default function MediaPage() {
     // Newsletter - Social Media Posts
     {
       id: 12,
+      title: 'Nasdeem Ventures - Penerima Anugerah Majikan Terbaik 2025 KWSP',
+      description: 'Nasdeem Ventures Sdn. Bhd. proudly receives recognition as Best Employer 2025 from EPF Malaysia (KWSP) for outstanding commitment to employee welfare and EPF contribution compliance. Award ceremony held on October 29, 2025 at The Light Hotel, Penang.',
+      date: '2025-10-27',
+      category: 'newsletter' as const,
+      coverImage: undefined,
+      images: [],
+      thumbnailImage: '/assets/images/kwsp.jpeg',
+      externalLink: 'https://www.linkedin.com/feed/update/urn:li:activity:7391370042396839937',
+      linkType: 'linkedin' as const
+    },
+    {
+      id: 17,
       title: 'Majlis Perasmian Masjid Pekan Permatang Pauh',
       description: 'Alhamdulillah, on April 24, 2025 corresponding to 25 Syawal 1446H, the Opening Ceremony of Masjid Pekan Permatang Pauh was held with full gratitude and blessings.',
-      date: '2025-09-27',
+      date: '2025-04-27',
       category: 'newsletter' as const,
       coverImage: undefined,
       images: [],
