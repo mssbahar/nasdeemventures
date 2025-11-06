@@ -289,9 +289,6 @@ export default function OurTeamPage() {
                     {group.icon}
                     <div className="text-left">
                       <h2 className="text-2xl font-bold">{group.title}</h2>
-                      {group.subtitle && (
-                        <p className="text-sm text-white/90">{group.subtitle}</p>
-                      )}
                     </div>
                   </div>
                 </motion.div>
