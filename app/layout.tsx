@@ -26,7 +26,7 @@ const anonymousPro = Anonymous_Pro({
 export const metadata: Metadata = {
   title: 'Nasdeem Ventures Sdn Bhd - Malaysia\'s Leading Bumiputera Company',
   description: 'Proudly Malaysia\'s Leading Bumiputera Company in Scheduled Waste Management & Industrial Solutions.',
-  keywords: 'waste management, petroleum products, demolition works, palm oil supply, transportation, logistics, Malaysia, Bumiputera',
+  keywords: 'waste management, petroleum products, demolition works, commodity trading, palm oil supply, transportation, logistics, Malaysia, Bumiputera',
 }
 
 export default function RootLayout({

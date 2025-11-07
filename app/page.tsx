@@ -41,8 +41,8 @@ export default function Home() {
       link: '/services/petroleum-products'
     },
     {
-      title: 'Demolitions Works',
-      description: 'Professional demolition services with safety - first approach and environmental compliance.',
+      title: 'Demolition Works & Commodity Trading',
+      description: 'Professional demolition services with safety-first approach and environmental compliance.',
       image: '/assets/images/demolish.jpeg',
       link: '/services/demolitions-works'
     },

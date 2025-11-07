@@ -47,7 +47,7 @@ const Navbar = () => {
   const servicesItems = [
     { name: 'Scheduled Waste Management', href: '/services/scheduled-waste-management' },
     { name: 'Petroleum Products', href: '/services/petroleum-products' },
-    { name: 'Demolitions Works & Commidity Trading', href: '/services/demolitions-works' },
+    { name: 'Demolition Works & Commodity Trading', href: '/services/demolitions-works' },
     { name: 'Palm Oil Supply', href: '/services/palm-oil-supply' },
     { name: 'Transportations & Logistics', href: '/services/transportations-logistics' },
   ]

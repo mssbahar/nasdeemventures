@@ -110,7 +110,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="/services/demolitions-works" className="text-gray-300 hover:text-white transition-colors">
-                  Demolitions Works & Commidity Trading
+                  Demolition Works & Commodity Trading
                 </Link>
               </li>
               <li>

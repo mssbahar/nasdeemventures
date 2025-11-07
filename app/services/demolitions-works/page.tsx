@@ -9,7 +9,7 @@ import {
   Leaf,
 } from 'lucide-react'
 
-export default function DemolitionsWorksPage() {
+export default function DemolitionWorksPage() {
 
   const whatWeDoItems = [
     {
@@ -23,7 +23,7 @@ export default function DemolitionsWorksPage() {
       image: '/assets/images/scrap.jpg',
     },
     {
-      title: 'Demolition works',
+      title: 'Demolition Works',
       description: 'Structural demolition for commercial and industrial projects',
       image: '/assets/images/demolition4.png',
     },

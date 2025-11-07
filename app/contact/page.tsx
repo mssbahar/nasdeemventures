@@ -316,7 +316,7 @@ export default function ContactPage() {
                       <option value="">Select a subject</option>
                       <option value="waste-management">Scheduled Waste Management</option>
                       <option value="petroleum-products">Petroleum Products</option>
-                      <option value="demolitions">Demolitions Works</option>
+                      <option value="demolitions">Demolition Works & Commodity Trading</option>
                       <option value="palm-oil">Palm Oil Supply</option>
                       <option value="logistics">Transportations & Logistics</option>
                       <option value="general">General Inquiry</option>
