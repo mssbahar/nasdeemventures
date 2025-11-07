@@ -41,7 +41,6 @@ const Navbar = () => {
   const aboutItems = [
     { name: 'Our Story', href: '/about/our-story' },
     { name: 'Our Team', href: '/about/our-team' },
-    { name: 'Certifications', href: '/about/certifications' },
   ]
 
   const servicesItems = [

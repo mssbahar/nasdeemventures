@@ -54,7 +54,7 @@ yarn dev
 
 ```
 ├── app/                    # Next.js App Router pages
-│   ├── about/             # About pages (Our Story, Our Team, Certifications)
+│   ├── about/             # About pages (Our Story, Our Team)
 │   ├── services/          # Services pages
 │   ├── contact/           # Contact page
 │   ├── media/             # Media page
@@ -85,7 +85,6 @@ yarn dev
 ### About
 - **Our Story**: Company history, mission, vision, founder story, timeline
 - **Our Team**: Team members with positions and bios
-- **Certifications**: Filterable certification gallery
 
 ### Services
 - **Main Services Page**: Overview of all services

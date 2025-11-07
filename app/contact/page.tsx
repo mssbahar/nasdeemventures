@@ -92,10 +92,6 @@ export default function ContactPage() {
       question: 'How do I get a quote?',
       answer: 'You can contact us through our contact form, email, or phone to request a free quote for our services.'
     },
-    {
-      question: 'What certifications do you have?',
-      answer: 'We are certified by DOE, KPDN, PDRM, MPOB, and CIDB for various aspects of our operations.'
-    }
   ]
 
   return (

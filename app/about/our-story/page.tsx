@@ -47,7 +47,7 @@ export default function OurStoryPage() {
       title: 'DOE Certification',
       description: 'Obtained DOE licenses (SW305, SW306, SW307) with a 200MT quota, expanded workforce to 10 - 20 staff and began serving the manufacturing industry.',
       type: 'image',
-      image: '/assets/images/doelesen.png'
+      image: '/assets/images/license.jpg'
     },
     {
       year: '2016',
@@ -68,14 +68,14 @@ export default function OurStoryPage() {
       title: 'Company Upgrade',
       description: 'Completed a full renovation of Nasdeem\'s interior design to enhance quality, comfort, and efficiency for both management and workers.',
       type: 'image',
-      image: '/assets/images/nasdeem.jpg'
+      image: '/assets/images/doelesen.png'
     },
     {
       year: '2025',
       title: 'KB19 Approval & Renovation',
       description: 'Received approval KB19 (kebenaran bertulis) for SW310, SW311, SW312, SW313, SW314, SW322, SW323, SW324, SW327, SW110, SW204, SW410, and SW422. To support this, Nasdeem carried out full facility renovations to enable operations for SW310 through SW327, ensuring compliance and readiness for expanded services.',
       type: 'image',
-      image: '/assets/images/license.jpg'
+      image: '/assets/images/nasdeem.jpg'
     }
   ]
 

@@ -131,33 +131,6 @@ export default function OurTeamPage() {
           bio: 'Leading marketing operations in Central Malaysia.',
           email: 'mm.central@nasdeemventures.com',
           linkedin: '#'
-        },
-        {
-          name: 'Shafiq Asnawi',
-          position: 'Marketing Executive - Northern',
-          location: 'Northern Malaysia',
-          image: '/assets/images/shafiq.jpeg',
-          bio: 'Executing marketing strategies in Northern region.',
-          email: 'shafiq@nasdeemventures.com',
-          linkedin: '#'
-        },
-        {
-          name: 'Farahana Zainal Abidin',
-          position: 'Marketing Executive - Central',
-          location: 'Central Malaysia',
-          image: '/assets/images/faa.jpeg',
-          bio: 'Executing marketing strategies in Central region.',
-          email: 'farahana@nasdeemventures.com',
-          linkedin: '#'
-        },
-        {
-          name: 'Hanif',
-          position: 'Marketing Executive - Central',
-          location: 'Central Malaysia',
-          image: '/assets/images/hanif.jpeg',
-          bio: 'Leading marketing operations in Central Malaysia.',
-          email: 'hanif@nasdeemventures.com',
-          linkedin: '#'
         }
       ]
     }
