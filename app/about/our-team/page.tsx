@@ -17,10 +17,10 @@ export default function OurTeamPage() {
       bgColor: 'bg-black',
       members: [
         {
-          name: 'Ts. Nur Farah Azlin',
+          name: 'Ts. NurFarah Azlin',
           position: 'Management Advisor',
           location: 'Penang',
-          image: '/assets/images/farah1.jpg',
+          image: '/assets/images/farah.jpg',
           bio: 'Strategic management guidance to optimize operational processes.',
           email: 'farah@nasdeemventures.com',
           linkedin: '#'
@@ -54,17 +54,26 @@ export default function OurTeamPage() {
         },
         {
           name: 'Mohd Faritdzul Nassim',
-          position: 'GM - Strategic Marketing',
+          position: 'Strategic Marketing',
           location: 'Penang',
           image: '/assets/images/faritdzul.jpg',
           bio: 'Overseeing strategic marketing operations and expansion.',
           email: 'faritdzul@nasdeemventures.com',
           linkedin: '#'
+        },
+        {
+          name: 'Kartini Mohd Noor',
+          position: 'HR & Admin',
+          location: 'Penang',
+          image: '/assets/images/kartini.jpeg',
+          bio: 'Managing human resources and administrative operations.',
+          email: 'kartini@nasdeemventures.com',
+          linkedin: '#'
         }
       ]
     },
     {
-      title: 'Head of Department',
+      title: 'Executive',
       icon: <Users className="w-6 h-6" />,
       color: 'from-black to-gray-800',
       bgColor: 'bg-black',
@@ -88,17 +97,8 @@ export default function OurTeamPage() {
           linkedin: '#'
         },
         {
-          name: 'Kartini Mohd Noor',
+          name: 'Areena Mohd Saad',
           position: 'HR',
-          location: 'Penang',
-          image: '/assets/images/kartini.jpeg',
-          bio: 'Managing human resources and workplace culture.',
-          email: 'kartini@nasdeemventures.com',
-          linkedin: '#'
-        },
-        {
-          name: 'Areena ',
-          position: 'Admin',
           location: 'Penang',
           image: '/assets/images/areena.jpg',
           bio: 'Supporting administrative operations across all departments.',
@@ -106,25 +106,17 @@ export default function OurTeamPage() {
           linkedin: '#'
         },
         {
-          name: 'Rohana ',
-          position: 'Operations',
+          name: 'Rohana',
+          position: 'Operation',
           location: 'Penang',
           image: '/assets/images/ana.jpg',
           bio: 'Managing daily operations and service delivery.',
           email: 'rohana@nasdeemventures.com',
           linkedin: '#'
-        }
-      ]
-    },
-    {
-      title: 'Marketing Managers',
-      icon: <Target className="w-6 h-6" />,
-      color: 'from-black to-gray-800',
-      bgColor: 'bg-black',
-      members: [
+        },
         {
           name: 'Adib Zaquan',
-          position: 'Northern Region',
+          position: 'Marketing Manager - Northern',
           location: 'Northern Malaysia',
           image: '/assets/images/adib.jpg',
           bio: 'Leading marketing operations in Northern Malaysia.',
@@ -133,7 +125,7 @@ export default function OurTeamPage() {
         },
         {
           name: 'Suhail Mazlan',
-          position: 'Central Region',
+          position: 'Marketing Manager - Central',
           location: 'Central Malaysia',
           image: '/assets/images/mm-central.jpg',
           bio: 'Leading marketing operations in Central Malaysia.',
@@ -141,25 +133,8 @@ export default function OurTeamPage() {
           linkedin: '#'
         },
         {
-          name: 'Ungku Zainul',
-          position: 'Southern Region',
-          location: 'Southern Malaysia',
-          image: '/assets/images/mm-south.jpg',
-          bio: 'Leading marketing operations in Southern Malaysia.',
-          email: 'mm.south@nasdeemventures.com',
-          linkedin: '#'
-        }
-      ]
-    },
-    {
-      title: 'Marketing Executives',
-      icon: <Target className="w-6 h-6" />,
-      color: 'from-black to-gray-800',
-      bgColor: 'bg-black',
-      members: [
-        {
           name: 'Shafiq Asnawi',
-          position: 'Northern Region',
+          position: 'Marketing Executive - Northern',
           location: 'Northern Malaysia',
           image: '/assets/images/shafiq.jpeg',
           bio: 'Executing marketing strategies in Northern region.',
@@ -168,11 +143,20 @@ export default function OurTeamPage() {
         },
         {
           name: 'Farahana Zainal Abidin',
-          position: 'Central Region',
+          position: 'Marketing Executive - Central',
           location: 'Central Malaysia',
           image: '/assets/images/faa.jpeg',
           bio: 'Executing marketing strategies in Central region.',
           email: 'farahana@nasdeemventures.com',
+          linkedin: '#'
+        },
+        {
+          name: 'Hanif',
+          position: 'Marketing Executive - Central',
+          location: 'Central Malaysia',
+          image: '/assets/images/hanif.jpeg',
+          bio: 'Leading marketing operations in Central Malaysia.',
+          email: 'hanif@nasdeemventures.com',
           linkedin: '#'
         }
       ]
@@ -192,47 +176,41 @@ export default function OurTeamPage() {
       >
         <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-transparent hover:border-[#FBBF24] h-full flex flex-col">
           {/* Image */}
-          <div className="relative w-full h-72 overflow-hidden bg-gray-100">
+          <div className="relative w-full h-96 overflow-hidden bg-gray-100">
             <Image
               src={member.image}
               alt={member.name}
               fill
-              className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
+              className="object-cover object-[center_20%] group-hover:scale-110 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
           
           {/* Content */}
-          <div className="p-5 flex-1 flex flex-col">
-            <h3 className="text-lg font-bold text-black mb-2 group-hover:text-[#FBBF24] transition-colors">
+          <div className="p-4 flex flex-col">
+            <h3 className="text-base font-bold text-black mb-1 group-hover:text-[#FBBF24] transition-colors">
               {member.name}
             </h3>
-            <p className="text-sm font-semibold text-[#FBBF24] mb-3">
+            <p className="text-sm font-semibold text-[#FBBF24] mb-2">
               {member.position}
             </p>
             {member.location && (
-              <div className="flex items-center text-xs text-gray-600 mb-3">
+              <div className="flex items-center text-xs text-gray-600 mb-2">
                 <MapPin className="w-3.5 h-3.5 mr-1.5 flex-shrink-0" />
                 <span>{member.location}</span>
               </div>
             )}
-            <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-1">
+            <p className="text-xs text-gray-600 leading-relaxed mb-3">
               {member.bio}
             </p>
             
             {/* Contact Icons */}
-            <div className="flex items-center gap-3 mt-auto">
+            <div className="flex items-center gap-3">
               <a 
                 href={member.linkedin} 
                 className="flex items-center justify-center w-9 h-9 bg-[#FBBF24] rounded-full hover:bg-[#F59E0B] transition-all hover:scale-110"
               >
                 <Linkedin className="w-4 h-4 text-white" />
-              </a>
-              <a 
-                href={`mailto:${member.email}`} 
-                className="flex items-center justify-center w-9 h-9 bg-black rounded-full hover:bg-gray-800 transition-all hover:scale-110"
-              >
-                <Mail className="w-4 h-4 text-white" />
               </a>
             </div>
           </div>
@@ -295,13 +273,17 @@ export default function OurTeamPage() {
                 
                 {/* Team Cards Grid */}
                 <div className={`grid gap-6 ${
-                  group.members.length === 5 
+                  group.members.length === 6 
+                    ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+                    : group.members.length === 10
+                    ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'
+                    : group.members.length === 5 
                     ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'
                     : group.members.length === 3
                     ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center lg:place-items-stretch'
                     : group.members.length === 2
                     ? 'grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto'
-                    : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'
+                    : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
                 }`}>
                   {group.members.map((member, index) => (
                     <TeamCard key={member.email} member={member} delay={index * 0.1} />
