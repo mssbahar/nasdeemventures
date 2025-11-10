@@ -17,7 +17,7 @@ export default function OurTeamPage() {
       bgColor: 'bg-black',
       members: [
         {
-          name: 'Ts. NurFarah Azlin Dato\' Nasir',
+          name: 'Ts. Nurfarah Azlin Binti Mohd Nasir',
           position: 'Management Advisor',
           location: 'Penang',
           image: '/assets/images/farah.jpg',
@@ -26,7 +26,7 @@ export default function OurTeamPage() {
           linkedin: '#'
         },
         {
-          name: 'Muhammad Nashrul Azwan Dato\' Nasir',
+          name: 'Muhammad Nashrul Azwan Bin Mohd Nasir',
           position: 'Marketing Advisor',
           location: 'Penang',
           image: '/assets/images/nashrul.jpg',
@@ -44,7 +44,7 @@ export default function OurTeamPage() {
           linkedin: '#'
         },
         {
-          name: 'Shazlina Binti Abdul Hamid',
+          name: 'Dr. Shazlina Binti Abd Hamid',
           position: 'GM - Corporate Service',
           location: 'Penang',
           image: '/assets/images/shazlina.jpeg',
@@ -79,7 +79,7 @@ export default function OurTeamPage() {
       bgColor: 'bg-black',
       members: [
         {
-          name: 'Nur Syahirah Bt Mohd Razi',
+          name: 'Nur Syahirah Binti Mohd Razi',
           position: 'Licensing',
           location: 'Penang',
           image: '/assets/images/ira.jpg',
@@ -88,7 +88,7 @@ export default function OurTeamPage() {
           linkedin: '#'
         },
         {
-          name: 'Abdul Alim Bin Abdul Hamid',
+          name: 'Abdul Alim Bin Abd Hamid',
           position: 'Finance',
           location: 'Penang',
           image: '/assets/images/alim.jpg',
