@@ -4,11 +4,12 @@ import { useState, useEffect, useRef } from 'react'
 import HeroSection from '@/components/HeroSection'
 import SectionWrapper from '@/components/SectionWrapper'
 import Image from 'next/image'
-import { ImageIcon, ExternalLink, X, ChevronLeft, ChevronRight, Linkedin, Facebook, Play, Pause } from 'lucide-react'
+import { ImageIcon, ExternalLink, X, ChevronLeft, ChevronRight, Linkedin, Facebook, Play, Pause, Star, Award } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 export default function MediaPage() {
   const [activeCategory, setActiveCategory] = useState('All')
-  const [selectedGallery, setSelectedGallery] = useState<{ images: string[], title: string, description: string } | null>(null)
+  const [selectedGallery, setSelectedGallery] = useState<{ images: string[] | { src: string, caption: string }[], title: string, description: string } | null>(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isAutoScroll, setIsAutoScroll] = useState(false)
   const autoScrollRef = useRef<NodeJS.Timeout | null>(null)
@@ -16,6 +17,42 @@ export default function MediaPage() {
   const categories = ['All', 'Social Activities', 'Operations', 'Newsletter']
 
   const mediaItems = [
+    // Featured Event - Photo Nasdeem
+    {
+      id: 0,
+      title: 'Majlis Perasmian Nasdeem Ventures Sdn Bhd',
+      description: 'A collection of memorable moments and events showcasing our company activities, team gatherings, and special occasions.',
+      date: '2006-01-01',
+      category: 'social' as const,
+      coverImage: '/assets/images/ucapan.jpg',
+      images: [
+        '/assets/images/rasmi.jpg',
+        '/assets/images/Photo Nasdeem-253.jpg',
+        '/assets/images/Photo Nasdeem-281.jpg',
+        '/assets/images/Photo Nasdeem-288.jpg',
+        '/assets/images/Photo Nasdeem-313.jpg',
+        '/assets/images/Photo Nasdeem-323.jpg',
+        '/assets/images/Photo Nasdeem-327.jpg',
+        '/assets/images/Photo Nasdeem-33.jpg',
+        '/assets/images/Photo Nasdeem-331.jpg',
+        '/assets/images/Photo Nasdeem-339.jpg',
+        '/assets/images/Photo Nasdeem-355.jpg',
+        '/assets/images/Photo Nasdeem-402.jpg',
+        '/assets/images/Photo Nasdeem-419.jpg',
+        '/assets/images/Photo Nasdeem-437.jpg',
+        '/assets/images/Photo Nasdeem-446.jpg',
+        '/assets/images/Photo Nasdeem-463.jpg',
+        '/assets/images/Photo Nasdeem-476.jpg',
+        '/assets/images/Photo Nasdeem-480.jpg',
+        '/assets/images/Photo Nasdeem-514.jpg',
+        '/assets/images/Photo Nasdeem-525.jpg',
+        '/assets/images/Photo Nasdeem-540.jpg',
+        '/assets/images/Photo Nasdeem-554.jpg'
+      ],
+      thumbnailImage: undefined,
+      externalLink: undefined,
+      linkType: undefined
+    },
     // Social Activities
     {
       id: 1,
@@ -322,9 +359,19 @@ export default function MediaPage() {
       return true
     })
 
-  const openGallery = (images: string[], title: string, description: string) => {
+  const openGallery = (images: string[] | { src: string, caption: string }[], title: string, description: string) => {
     setSelectedGallery({ images, title, description })
     setCurrentImageIndex(0)
+  }
+
+  // Helper function to get image source
+  const getImageSrc = (image: string | { src: string, caption: string }): string => {
+    return typeof image === 'string' ? image : image.src
+  }
+
+  // Helper function to get image caption
+  const getImageCaption = (image: string | { src: string, caption: string }): string | null => {
+    return typeof image === 'string' ? null : image.caption
   }
 
   const closeGallery = () => {
@@ -446,6 +493,147 @@ export default function MediaPage() {
         backgroundImage="/assets/images/media.jpg"
         showButtons={false}
       />
+
+      {/* Special Featured Event - Photo Nasdeem */}
+      <SectionWrapper className="relative overflow-hidden">
+        {/* Animated Background with Black Filter */}
+        <div className="absolute inset-0 bg-black/80">
+          <div className="absolute inset-0 bg-[url('/assets/images/bg.png')] opacity-20"></div>
+          <div className="absolute inset-0">
+            <motion.div
+              animate={{
+                scale: [1, 1.1, 1],
+                rotate: [0, 5, -5, 0],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+            />
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, -5, 5, 0],
+              }}
+              transition={{
+                duration: 15,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5
+              }}
+              className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+            />
+          </div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+          {/* Special Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-center mb-6"
+          >
+            <div className="inline-flex items-center gap-2 bg-black/20 backdrop-blur-md px-6 py-2 rounded-full border-2 border-white/30">
+              <span className="text-white font-bold text-sm uppercase tracking-wider">A Moment to Remember</span>
+            </div>
+          </motion.div>
+
+          {/* Main Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left Side - Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center lg:text-left"
+            >
+              <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
+                <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight">
+                  Majlis Perasmian Nasdeem Ventures Sdn Bhd
+                </h3>
+              </div>
+              <div className="w-83 h-1.5 bg-white mb-4"></div>
+              <p className="text-xl lg:text-2xl text-white/90 mb-6 leading-relaxed">
+                A momentous milestone in our company's history. The official opening ceremony 
+                that marked the beginning of our journey towards excellence in scheduled waste 
+                management and industrial solutions.
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  const photoItem = mediaItems.find(item => 
+                    item.id === 0 || 
+                    item.title.toLowerCase().includes('photo nasdeem')
+                  )
+                  if (photoItem && photoItem.images && photoItem.images.length > 0) {
+                    openGallery(photoItem.images, photoItem.title, photoItem.description)
+                  } else if (photoItem && photoItem.externalLink) {
+                    window.open(photoItem.externalLink, '_blank')
+                  }
+                }}
+                className="bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/90 transition-all duration-300 shadow-2xl hover:shadow-white/50"
+              >
+                View Photo Gallery
+              </motion.button>
+            </motion.div>
+
+            {/* Right Side - Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/30 bg-black/20">
+                <Image
+                  src="/assets/images/ucapan.jpg"
+                  alt="Photo Nasdeem"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-4 left-4 w-16 h-16 border-4 border-white/50 rounded-lg"></div>
+                <div className="absolute bottom-4 right-4 w-12 h-12 border-4 border-white/50 rounded-lg"></div>
+              </div>
+              
+              {/* Floating Badge */}
+              <motion.div
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute -bottom-6 -right-6 bg-white rounded-full p-4 shadow-2xl"
+              >
+                <Award className="w-12 h-12 text-primary" />
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Bottom Decorative Line */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="mt-10 h-1 bg-white/30"
+          />
+        </div>
+      </SectionWrapper>
 
       {/* Media Introduction & Category Filter */}
       <SectionWrapper className="bg-muted">
@@ -626,10 +814,10 @@ export default function MediaPage() {
               </button>
               
               {/* Main Image - Fixed Size Container */}
-              <div className="relative w-full h-full max-w-4xl max-h-[60vh] flex items-center justify-center group">
-                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-[0_0_50px_rgba(251,191,36,0.3)] transition-all duration-500">
+              <div className="relative w-full h-full max-w-4xl flex flex-col items-center justify-center group">
+                <div className="relative w-full flex-1 max-h-[55vh] rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-[0_0_50px_rgba(251,191,36,0.3)] transition-all duration-500">
                   <Image
-                    src={selectedGallery.images[currentImageIndex]}
+                    src={getImageSrc(selectedGallery.images[currentImageIndex])}
                     alt={`${selectedGallery.title} - Image ${currentImageIndex + 1}`}
                     fill
                     className="object-contain transition-transform duration-500 group-hover:scale-105"
@@ -639,6 +827,21 @@ export default function MediaPage() {
                   {/* Image Overlay Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
                 </div>
+                
+                {/* Image Caption */}
+                {getImageCaption(selectedGallery.images[currentImageIndex]) && (
+                  <motion.div
+                    key={currentImageIndex}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="mt-4 px-6 py-3 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 max-w-2xl"
+                  >
+                    <p className="text-white text-center text-sm lg:text-base font-medium">
+                      {getImageCaption(selectedGallery.images[currentImageIndex])}
+                    </p>
+                  </motion.div>
+                )}
               </div>
             </div>
             
@@ -683,7 +886,7 @@ export default function MediaPage() {
                       }`}
                     >
                       <Image
-                        src={image}
+                        src={getImageSrc(image)}
                         alt={`Thumbnail ${index + 1}`}
                         width={64}
                         height={48}
