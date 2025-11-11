@@ -91,7 +91,7 @@ export default function OurTeamPage() {
           name: 'Abdul Alim Bin Abd Hamid',
           position: 'Finance',
           location: 'Penang',
-          image: '/assets/images/alim.jpg',
+          image: '/assets/images/alim.png',
           bio: 'Overseeing financial operations and strategic planning.',
           email: 'alim@nasdeemventures.com',
           linkedin: '#'
@@ -127,7 +127,7 @@ export default function OurTeamPage() {
           name: 'Muhamad Suhail Bin Mazlan',
           position: 'Marketing Manager - Central',
           location: 'Central Malaysia',
-          image: '/assets/images/mm-central.jpg',
+          image: '/assets/images/suhail.png',
           bio: 'Leading marketing operations in Central Malaysia.',
           email: 'mm.central@nasdeemventures.com',
           linkedin: '#'
