@@ -81,7 +81,7 @@ export default function CareerPage() {
   const employeeStories = [
     {
       id: 1,
-      name: 'Dr Shazlina',
+      name: 'Dr Shazlina Binti Abd Hamid',
       position: 'General Manager - Corporate Service',
       image: '/assets/images/shazlina.jpg',
       story: 'Leading the corporate services division at Nasdeem Ventures has been incredibly fulfilling. I oversee strategic initiatives and ensure our corporate operations align with environmental compliance standards. The company\'s commitment to sustainability makes every day meaningful.',
@@ -89,7 +89,7 @@ export default function CareerPage() {
     },
     {
       id: 2,
-      name: 'Syahirah Razi',
+      name: 'Nur Syahirah Binti Mohd Razi',
       position: 'Licensing Executive',
       image: '/assets/images/ira.jpg',
       story: 'Managing our licensing portfolio with DOE, KPDN, PDRM, and other regulatory bodies has taught me so much about environmental compliance. Nasdeem Ventures provides excellent support for professional development in regulatory affairs.',
@@ -97,9 +97,9 @@ export default function CareerPage() {
     },
     {
       id: 3,
-      name: 'Abdul Alim',
+      name: 'Abdul Alim Bin Abd Hamid',
       position: 'Finance Executive',
-      image: '/assets/images/alim.jpg',
+      image: '/assets/images/alim.png',
       story: 'Working in finance at an environmental services company has given me unique insights into sustainable business practices. I handle financial planning and ensure our operations remain profitable while maintaining environmental standards.',
       tenure: '3+ years'
     }
