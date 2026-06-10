@@ -145,12 +145,3 @@ The website uses a custom theme defined in `app/globals.css`. You can modify col
 4. Test thoroughly
 5. Submit a pull request
 
-## License
-
-This project is proprietary to Nasdeem Ventures Sdn Bhd.
-
-## Support
-
-For technical support or questions about the website, please contact:
-- Email: general@nasdeemventures.com
-- Phone: 604-5010800
